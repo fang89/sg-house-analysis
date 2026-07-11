@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Singapore HDB × Amenities — how far is daily life?</title>
-<meta name="description" content="Interactive map: distance from every HDB block to the nearest FairPrice/Sheng Siong supermarket, primary school, mall, MRT/LRT, hawker centre and more.">
+<title>Which HDB block is the best in Singapore? — scored /10</title>
+<meta name="description" content="Every HDB block in Singapore scored out of 10 on rent value and walkable amenities: MRT, hawker centres, supermarkets, malls, schools, infant care.">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
@@ -157,15 +157,15 @@ td.bad{color:var(--st-critical);font-weight:600}
 <body>
 <div class="wrap">
 <header>
-  <h1>Every HDB block vs its daily amenities</h1>
+  <h1>Which HDB block is the best in Singapore?</h1>
   <button id="themeBtn" aria-label="Toggle dark mode">◐ theme</button>
 </header>
-<p class="sub">How far is each of Singapore's ~13,400 HDB blocks from the nearest
-<b>MRT/LRT station</b>, <b>FairPrice / Sheng Siong supermarket</b>, <b>infant care centre</b>,
-<b>primary school</b>, <b>shopping mall</b>, <b>hawker centre</b> — plus community clubs —
-and what does it rent for? <b>Search a postal code or click any block</b> to see exactly
-what's around it and its average monthly rent, or switch to the <b>score</b> view — each
-block scored out of 12 on walkable amenities plus rent affordability. Distances are straight-line.</p>
+<p class="sub">All ~13,400 HDB blocks, <b>scored out of 10</b> on what daily life there costs
+and how walkable it is: <b>rent value</b> weighs most (2.0), then <b>MRT/LRT</b> (1.8),
+<b>hawker centre</b> (1.5), <b>FairPrice / Sheng Siong supermarket</b> (1.4), <b>mall</b> (1.2),
+<b>primary school</b> (1.0), <b>infant care</b> (0.7) and <b>community club</b> (0.4).
+Green blocks score highest. <b>Search a postal code or click any block</b> for its full
+scorecard — every distance, average rent, and what else is nearby. Distances are straight-line.</p>
 
 <div class="tiles" id="tiles"></div>
 
@@ -178,7 +178,7 @@ block scored out of 12 on walkable amenities plus rent affordability. Distances 
   </span>
   <label>amenity <select id="fFocus"></select></label>
   <span class="seg" id="modeSeg" role="group" aria-label="Colour mode">
-    <button data-m="plain" class="on">Explore</button><button data-m="score">Score /12 (amenities + rent)</button>
+    <button data-m="score" class="on">Score /10</button><button data-m="plain">Explore</button>
   </span>
   <label id="benchWrap">within <select id="fBench">
     <option>300</option><option>400</option><option>500</option><option>800</option>
@@ -218,8 +218,9 @@ block scored out of 12 on walkable amenities plus rent affordability. Distances 
   <h2>Method, sources & caveats</h2>
   <ul>
     <li><b>Distances are straight-line</b> from the HDB building centroid — an easy, consistent yardstick, but real walks are longer (roads, blocks, canals). MRT/LRT distance is to the <i>station</i> (the mean position of its exits).</li>
-    <li><b>Score (0–12) = walkable amenities (0–10) + rent affordability (0–2)</b>. Five everyday amenity types — supermarket, primary school, mall, MRT/LRT station, hawker centre — each contribute <b>2 points</b> if the nearest one is within its benchmark distance, <b>1 point</b> if within 1.5× the benchmark ("a stretch, but walkable"), <b>0</b> beyond that. Benchmarks: supermarket &amp; hawker 500&#8202;m (1&#8202;pt ≤&#8202;750&#8202;m), MRT 800&#8202;m (1&#8202;pt ≤&#8202;1.2&#8202;km), school &amp; mall 1&#8202;km (1&#8202;pt ≤&#8202;1.5&#8202;km). Infant care and community clubs are mapped but not scored. All amenity types weigh equally — the score measures <i>completeness</i> of daily amenities; having several of one type nearby doesn't add points (it shows in the block panel instead).</li>
-    <li><b>Rent points</b>: a block's rentals over the last 12 months are compared with the island-wide average <i>for the same flat types</i> (so a 3-room block isn't "cheap" just for being small): average ratio ≤&#8202;0.95 → <b>2&#8202;pts</b>, ≤&#8202;1.10 → <b>1&#8202;pt</b>, above → 0. Blocks with fewer than 3 rentals use their town's ratio (their own average is still displayed, marked accordingly); blocks in towns with no data score a neutral 1. Rents are HDB rental-approval declarations (<a href="https://data.gov.sg/datasets/d_c9f57187485a850908655db0e8cfe651/view">data.gov.sg</a>) — owner-declared, whole-flat rentals, indicative only. ~66% of blocks have their own transactions; the panel shows the average and the count.</li>
+    <li><b>The score (0–10) is a weighted sum of eight components</b>, ordered by how much they shape daily life: <b>rent value 2.0</b> &gt; <b>MRT/LRT 1.8</b> &gt; <b>hawker centre 1.5</b> &gt; <b>supermarket 1.4</b> &gt; <b>mall 1.2</b> &gt; <b>primary school 1.0</b> &gt; <b>infant care 0.7</b> &gt; <b>community club 0.4</b> (weights sum to 10; the ordering is editorial). Each amenity pays its <b>full weight</b> if the nearest one is within its benchmark distance, <b>half</b> within 1.5× the benchmark ("a stretch, but walkable"), <b>0</b> beyond. Benchmarks: supermarket &amp; hawker 500&#8202;m, MRT &amp; infant care 800&#8202;m, school / mall / CC 1&#8202;km. Having several of one type nearby doesn't add points — it shows in the block panel instead.</li>
+    <li><b>Rent value (the heaviest component)</b>: a block's rentals over the last 12 months are compared with the island-wide average <i>for the same flat types</i> (so a 3-room block isn't "cheap" just for being small): average ratio ≤&#8202;0.95 → full 2.0&#8202;pts, ≤&#8202;1.10 → 1.0, above → 0. Blocks with fewer than 3 rentals use their town's ratio (their own average is still displayed, marked accordingly); blocks in towns with no data score a neutral 1.0. Rents are HDB rental-approval declarations (<a href="https://data.gov.sg/datasets/d_c9f57187485a850908655db0e8cfe651/view">data.gov.sg</a>) — owner-declared, whole-flat rentals, indicative only. ~66% of blocks have their own transactions; the panel shows the average and the count.</li>
+    <li><b>"Best block" claims come with caveats</b>: the ranking table keeps only blocks with a known dwelling-unit count (excludes carparks/commercial HDB buildings), straight-line distance flatters blocks near barriers (canals, expressways), and the weights are one editorial view of what matters — a family optimising for schools would weigh differently.</li>
     <li><b>Benchmarks are editorial yardsticks</b> (adjustable above for the charts), not official standards.</li>
     <li><b>HDB blocks</b>: <a href="https://data.gov.sg/datasets/d_16b157c52ed637edd6ba1232e026258d/view">HDB Existing Building</a> footprints (data.gov.sg) — includes every HDB building, so some points are multi-storey carparks or commercial blocks.</li>
     <li><b>Supermarkets</b>: SFA licensed-supermarket register (data.gov.sg), filtered to NTUC FairPrice and Sheng Siong licences, geocoded by postal code via OneMap. Licence address ≈ store address. Other chains (Giant, Cold Storage, Prime…) are excluded by design.</li>
@@ -245,26 +246,29 @@ const fmt = n => n.toLocaleString('en-SG');
 /* ---------- layer config (order = fixed categorical order) ---------- */
 const LAYERS = {
   mrt:    {label:'MRT / LRT station', short:'MRT/LRT station', cssVar:'--c-mrt', shape:'badge'},
-  super:  {label:'Supermarket (FairPrice / Sheng Siong)', short:'supermarket', cssVar:null, shape:'circle'},
-  infantcare:{label:'Infant care', short:'infant care', cssVar:'--c-infant', shape:'circle'},
-  school: {label:'Primary school', short:'primary school', cssVar:'--c-school', shape:'circle'},
-  mall:   {label:'Shopping mall', short:'mall', cssVar:'--c-mall', shape:'circle'},
   hawker: {label:'Hawker centre', short:'hawker centre', cssVar:'--c-hawker', shape:'circle'},
+  super:  {label:'Supermarket (FairPrice / Sheng Siong)', short:'supermarket', cssVar:null, shape:'circle'},
+  mall:   {label:'Shopping mall', short:'mall', cssVar:'--c-mall', shape:'circle'},
+  school: {label:'Primary school', short:'primary school', cssVar:'--c-school', shape:'circle'},
+  infantcare:{label:'Infant care', short:'infant care', cssVar:'--c-infant', shape:'circle'},
   communityclub:{label:'Community club', short:'community club', cssVar:'--c-cc', shape:'circle'},
 };
-// Score, out of 12: the 5 everyday amenity types each contribute 0-2
-// points by distance band (2 within the benchmark, 1 within 1.5x it),
-// plus 0-2 rent-affordability points (avg rent vs island average for the
-// same flat types). Infant care & community clubs are mapped, not scored.
-const SCORE_LAYERS = ['super','school','mall','mrt','hawker'];
-const layerPts = (b, l) => {
+// Which HDB block is the best in Singapore, out of 10?
+// Weighted score: rent value matters most, then each amenity by priority.
+// Each component pays its full weight if the nearest one is within its
+// benchmark distance, half weight within 1.5x, nothing beyond (rent: full
+// weight if the block rents <=0.95x the island average for its flat types,
+// half up to 1.10x). Weights sum to 10.
+const WEIGHTS = {rent:2.0, mrt:1.8, hawker:1.5, super:1.4, mall:1.2,
+                 school:1.0, infantcare:0.7, communityclub:0.4};
+const layerFactor = (b, l) => {
   const d = dist(b, l), B = SUM.benchmarks[l];
-  return d <= B ? 2 : d <= 1.5 * B ? 1 : 0;
+  return d <= B ? 1 : d <= 1.5 * B ? 0.5 : 0;
 };
-let RENT_COL = 0;   // set at boot: [avg S$/mo, n block rentals, pts]
+let RENT_COL = 0;   // set at boot: [avg S$/mo, n block rentals, pts 0-2]
 const rentAvg = b => b[RENT_COL];
 const rentN   = b => b[RENT_COL + 1];
-const rentPts = b => b[RENT_COL + 2];
+const rentFactor = b => b[RENT_COL + 2] / 2;
 const TOWN = {AMK:'Ang Mo Kio',BB:'Bukit Batok',BD:'Bedok',BH:'Bishan',BM:'Bukit Merah',
   BP:'Bukit Panjang',BT:'Bukit Timah',CCK:'Choa Chu Kang',CL:'Clementi',CT:'Central Area',
   GL:'Geylang',HG:'Hougang',JE:'Jurong East',JW:'Jurong West',KWN:'Kallang/Whampoa',
@@ -276,12 +280,14 @@ const TOWN = {AMK:'Ang Mo Kio',BB:'Bukit Batok',BD:'Bedok',BH:'Bishan',BM:'Bukit
 let BLOCKS = [], AMEN = {}, STATIONS = [], SUM = {};
 let ORDER = [];        // layer order in blocks.json rows
 let COL = {};          // layer -> column index of distance in a block row
-const S = { focus:'super', mode:'plain', bench:500, town:'', circles:false,
-            visible:new Set(['super']), sel:null };  // sel = index into BLOCKS (block-focus mode)
+const S = { focus:'mrt', mode:'score', bench:800, town:'', circles:false,
+            visible:new Set(['mrt']), sel:null };  // sel = index into BLOCKS (block-focus mode)
 
 const dist = (b, layer) => b[COL[layer || S.focus]];
 const nearIdx = (b, layer) => b[COL[layer || S.focus] + 1];
-const score = b => SCORE_LAYERS.reduce((n,l) => n + layerPts(b, l), 0) + rentPts(b);  // 0-12
+const score = b => WEIGHTS.rent * rentFactor(b) +
+  ORDER.reduce((n,l) => n + (WEIGHTS[l] || 0) * layerFactor(b, l), 0);  // 0-10
+const fmtScore = n => (Math.round(n * 10) / 10).toFixed(1);
 const townOf = b => TOWN[b[5]] || (b[5] || 'No town code');
 
 /* ---------- theme ---------- */
@@ -309,14 +315,14 @@ const TILES = {
 };
 const ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>';
 
-function scoreColor(n){  // n out of 12
+function scoreColor(n){  // n out of 10
   return [css('--st-critical'), css('--st-serious'), '#c9a227',
-          css('--blk-covered'), '#5daa5d', css('--st-good')][Math.round(n / 2.4)];
+          css('--blk-covered'), '#5daa5d', css('--st-good')][Math.round(n / 2)];
 }
 function blockStyle(b){
   if (S.mode === 'score'){
     const n = score(b);
-    return {color:scoreColor(n), r:n <= 5 ? 5.5 : 3, op:.9};
+    return {color:scoreColor(n), r:n >= 9 ? 5.5 : 3, op:.85};  // the best pop
   }
   return {color:css('--blk-covered'), r:2.5, op:.5};  // Explore: neutral dots
 }
@@ -386,8 +392,7 @@ function drawBlocks(){
       return;
     }
     if (S.town && b[5] !== S.town) return;
-    if (S.mode === 'score' && score(b) === 12) return;         // fully served hidden
-    // 'plain' (Explore) draws every block as a small neutral dot
+    // score mode shows every block — we're ranking, not gap-hunting
     const st = blockStyle(b);
     L.circleMarker([b[2], b[3]], {...HIT, radius:st.r,
       fillColor:st.color, fillOpacity:st.op})
@@ -490,10 +495,10 @@ function renderFocusPanel(b, nearestMarkers){
     const over = d > SUM.benchmarks[l];
     const c = layerColor(l, pt && pt[3]);
     const info = nearbyInfo(b, l);
-    let what = LAYERS[l].short;
-    if (SCORE_LAYERS.includes(l)) what += ` · ${layerPts(b, l)}/2 pts`;
+    const w = WEIGHTS[l], got = (w * layerFactor(b, l)).toFixed(1);
+    let what = `${LAYERS[l].short} · ${got}/${w.toFixed(1)} pts`;
     if (l === 'mrt' && info.second && info.second.between)
-      what = `<b>between two stations</b> · ${layerPts(b, l)}/2 pts`;
+      what = `<b>between two stations</b> · ${got}/${w.toFixed(1)} pts`;
     let extra = '';
     if (info.second && (l === 'mrt' || info.count >= 1)){
       const more = info.count > 1 ? ` (+${info.count} within 1 km)` : '';
@@ -509,15 +514,15 @@ function renderFocusPanel(b, nearestMarkers){
   const rentRow = rAvg ? `<div class="row">
       <span class="sw" style="background:var(--ink-3)"></span>
       <span class="nm"><div>S$${fmt(rAvg)}/mo average rent</div>
-        <div class="what">${rN ? `${rN} rental${rN>1?'s':''} in this block, last 12 mo` : 'town average — no rentals in this block'} · ${rentPts(b)}/2 pts</div></span>
+        <div class="what">${rN ? `${rN} rental${rN>1?'s':''} in this block, last 12 mo` : 'town average — no rentals in this block'} · ${(WEIGHTS.rent * rentFactor(b)).toFixed(1)}/${WEIGHTS.rent.toFixed(1)} pts</div></span>
     </div>` : '';
   const p = $('#focusPanel');
   p.innerHTML = `<button class="close" aria-label="Back to overview">✕ overview</button>
     <h3>Blk ${b[1]}${b[4] ? ' ' + b[4] : ''}</h3>
     <div class="meta">${townOf(b)}${b[0] ? ' · S(' + b[0] + ')' : ''}${b[6] ? ' · ' + fmt(b[6]) + ' units' : ''}
-      · score <b>${score(b)}/12</b></div>
-    ${rows}${rentRow}
-    <div class="hint">Nearest of each amenity (dashed lines); smaller markers = everything within 1 km. ▲ beyond its benchmark. Score /12: the 5 everyday amenities give 2 pts within their benchmark (1 pt within 1.5×), plus 0–2 pts for rent below the island average. Click a row to see it, another block to switch, or Esc to exit.</div>`;
+      · score <b>${fmtScore(score(b))}/10</b></div>
+    ${rentRow}${rows}
+    <div class="hint">Nearest of each amenity (dashed lines); smaller markers = everything within 1 km. ▲ beyond its benchmark. Score /10 is weighted: rent value 2.0, MRT 1.8, hawker 1.5, supermarket 1.4, mall 1.2, school 1.0, infant care 0.7, CC 0.4 — full weight within benchmark, half within 1.5×. Click a row to see it, another block to switch, or Esc to exit.</div>`;
   p.style.display = 'block';
   p.querySelector('.close').onclick = clearFocus;
   p.querySelectorAll('.row').forEach(r => {
@@ -567,7 +572,7 @@ function drawLegend(){
     return `<span><span class="sw" style="${style}"></span>${LAYERS[l].label}</span>`;
   }).join('');
   if (S.mode === 'score'){
-    el.innerHTML = `<span><span class="ramp score"></span>block: score 0 → 12 — walkable amenities (10) + rent affordability (2); perfect-12 blocks hidden — see Method below</span>` + marks;
+    el.innerHTML = `<span><span class="ramp score"></span>block: score 0 → 10, weighted — rent value 2.0, MRT 1.8, hawker 1.5, supermarket 1.4, mall 1.2, school 1.0, infant care 0.7, CC 0.4 (see Method below); big green dots score 9+</span>` + marks;
   } else {
     el.innerHTML = `<span><span class="sw" style="background:${css('--blk-covered')}"></span>HDB block — <b>click one (or search above)</b> to see every amenity around it</span>` + marks;
   }
@@ -578,17 +583,21 @@ function setTiles(){
   const rows = BLOCKS.filter(b => !S.town || b[5] === S.town);
   const n = rows.length;
   if (S.mode === 'score'){
-    const full = rows.filter(b => score(b) >= 11).length;
-    const low = rows.filter(b => score(b) <= 5).length;
-    const med = [...rows].map(score).sort((a,b)=>a-b)[Math.floor(n/2)];
+    const scores = rows.map(score);
+    const top = rows.filter((b,i) => scores[i] >= 9).length;
+    const low = rows.filter((b,i) => scores[i] <= 4).length;
+    const med = [...scores].sort((a,b)=>a-b)[Math.floor(n/2)];
+    // same ranking as the table: residential blocks, ties broken by rent
+    const best = rows.filter(b => b[6] > 0)
+      .sort((a,b)=>score(b)-score(a) || rentAvg(a)-rentAvg(b))[0] || rows[0];
     const rents = rows.map(rentAvg).filter(Boolean).sort((a,b)=>a-b);
     $('#tiles').innerHTML = tilesHtml([
-      [fmt(n), 'HDB blocks' + (S.town ? ' in ' + TOWN[S.town] : '')],
-      [med + '/12', 'median score (amenities + rent)'],
-      [(100*full/n).toFixed(1) + '%', 'blocks scoring 11–12', false, true],
-      [fmt(low), 'blocks scoring ≤5/12', low > 0],
+      [fmt(n), 'HDB blocks scored' + (S.town ? ' in ' + TOWN[S.town] : '')],
+      [fmtScore(med) + '/10', 'median score'],
+      [fmtScore(score(best)) + '/10', `best: Blk ${best[1]} ${best[4] || townOf(best)}`, false, true],
+      [fmt(top), 'blocks scoring 9+', false, top > 0],
+      [fmt(low), 'blocks scoring ≤4', low > 0],
       ['S$' + fmt(rents[Math.floor(rents.length/2)] || 0), 'median avg rent/mo'],
-      [fmt(SUM.stations.mrt + SUM.stations.lrt), 'MRT + LRT stations'],
     ]);
     return;
   }
@@ -623,16 +632,16 @@ function drawHist(){
         m = {t:14, r:8, b:26, l:8};
   const rows = BLOCKS.filter(b => !S.town || b[5] === S.town);
   if (S.mode === 'score'){
-    $('#histTitle').textContent = 'Score distribution (0–12)';
-    $('#histNote').textContent = '2 pts per everyday amenity (supermarket, school, mall, MRT, hawker) within its benchmark (1 pt within 1.5×) + 0–2 pts rent affordability';
-    const bins = Array(13).fill(0);
-    rows.forEach(b => bins[score(b)]++);
-    const bw = (W-m.l-m.r)/13, ymax = Math.max(...bins);
+    $('#histTitle').textContent = 'Score distribution (0–10)';
+    $('#histNote').textContent = 'weighted: rent 2.0 · MRT 1.8 · hawker 1.5 · supermarket 1.4 · mall 1.2 · school 1.0 · infant care 0.7 · CC 0.4';
+    const bins = Array(11).fill(0);
+    rows.forEach(b => bins[Math.min(Math.round(score(b)), 10)]++);
+    const bw = (W-m.l-m.r)/11, ymax = Math.max(...bins);
     const yy = v => m.t + (H-m.t-m.b)*(1-v/ymax);
     let s = `<svg width="${W}" height="${H}" role="img" aria-label="Score distribution">`;
     bins.forEach((v,i)=>{
       const x = m.l+i*bw, y = yy(v), h = H-m.b-y;
-      s += `<rect data-tt="<b>${fmt(v)}</b> blocks scoring ${i}/12" x="${x+2}" y="${y}" width="${bw-4}" height="${Math.max(h,0)}" rx="3" fill="${scoreColor(i)}"></rect>`;
+      s += `<rect data-tt="<b>${fmt(v)}</b> blocks scoring ≈${i}/10" x="${x+2}" y="${y}" width="${bw-4}" height="${Math.max(h,0)}" rx="3" fill="${scoreColor(i)}"></rect>`;
       if (v > 0 && bw > 26) s += `<text class="direct" x="${x+bw/2}" y="${y-4}" text-anchor="middle">${fmt(v)}</text>`;
       s += `<text x="${x+bw/2}" y="${H-8}" text-anchor="middle">${i}</text>`;
     });
@@ -675,10 +684,10 @@ function drawTowns(){
   let rows, fmtV, title, note;
   if (S.mode === 'score'){
     rows = Object.entries(agg).map(([t,vs]) =>
-      [t, vs.reduce((a,v)=>a+v,0)/vs.length, vs.length]).sort((a,b)=>a[1]-b[1]);
-    fmtV = v => v.toFixed(1) + '/12';
-    title = 'Towns by average score';
-    note = 'lower = fewer everyday amenities within walking distance / pricier rent';
+      [t, vs.reduce((a,v)=>a+v,0)/vs.length, vs.length]).sort((a,b)=>b[1]-a[1]);
+    fmtV = v => v.toFixed(1) + '/10';
+    title = 'Best towns by average score';
+    note = 'higher = walkable amenities + rent below the island average — click to zoom';
   } else {
     rows = Object.entries(agg).map(([t,vs]) =>
       [t, 100*vs.filter(d=>d>S.bench).length/vs.length, vs.length])
@@ -726,15 +735,17 @@ function zoomTown(){
 function drawTable(){
   const rows = BLOCKS.filter(b => !S.town || b[5] === S.town);
   if (S.mode === 'score'){
-    $('#tblSummary').textContent = 'Table: 50 lowest-scoring HDB blocks';
-    const worst = [...rows].sort((a,b)=>score(a)-score(b) || dist(b,'super')-dist(a,'super')).slice(0,50);
+    $('#tblSummary').textContent = 'Table: the 50 best HDB blocks in Singapore';
+    // residential blocks only (unit count known) — keeps carparks out of the ranking
+    const best = rows.filter(b => b[6] > 0)
+      .sort((a,b)=>score(b)-score(a) || rentAvg(a)-rentAvg(b)).slice(0,50);
+    const cols = ['mrt','hawker','super','mall'];
     $('#worst').innerHTML =
-      `<tr><th>Block</th><th>Town</th><th style="text-align:right">Score</th>` +
-      SCORE_LAYERS.map(l=>`<th style="text-align:right">${LAYERS[l].short}</th>`).join('') +
-      `<th style="text-align:right">avg rent</th></tr>` +
-      worst.map(b=>`<tr><td>Blk ${b[1]} ${b[4]||''}</td><td>${townOf(b)}</td><td class="num bad">${score(b)}/12</td>` +
-        SCORE_LAYERS.map(l=>`<td class="num${dist(b,l)>SUM.benchmarks[l]?' bad':''}">${fmt(dist(b,l))} m</td>`).join('') +
-        `<td class="num">${rentAvg(b) ? 'S$' + fmt(rentAvg(b)) + (rentN(b) ? '' : '*') : '—'}</td></tr>`).join('');
+      `<tr><th>#</th><th>Block</th><th>Town</th><th style="text-align:right">Score</th><th style="text-align:right">avg rent</th>` +
+      cols.map(l=>`<th style="text-align:right">${LAYERS[l].short}</th>`).join('') + `</tr>` +
+      best.map((b,i)=>`<tr><td>${i+1}</td><td>Blk ${b[1]} ${b[4]||''}</td><td>${townOf(b)}</td><td class="num" style="font-weight:600">${fmtScore(score(b))}</td>` +
+        `<td class="num">${rentAvg(b) ? 'S$' + fmt(rentAvg(b)) + (rentN(b) ? '' : '*') : '—'}</td>` +
+        cols.map(l=>`<td class="num${dist(b,l)>SUM.benchmarks[l]?' bad':''}">${fmt(dist(b,l))} m</td>`).join('') + `</tr>`).join('');
     return;
   }
   $('#tblSummary').textContent = `Table: 50 HDB blocks farthest from a ${LAYERS[S.focus].short}`;
@@ -871,6 +882,9 @@ Promise.all(['data/blocks.json','data/amenities.json','data/summary.json']
   $('#genDate').textContent = sum.generated;
   $('#fFocus').innerHTML = ORDER.map(l=>`<option value="${l}">${LAYERS[l].label}</option>`).join('');
   $('#fFocus').value = S.focus;
+  // landing view is the score — the amenity/benchmark pickers belong to Explore
+  $('#benchWrap').style.display = S.mode === 'score' ? 'none' : '';
+  $('#fFocus').disabled = S.mode === 'score';
   const towns = [...new Set(BLOCKS.map(b=>b[5]).filter(Boolean))].sort((a,b)=>(TOWN[a]||a).localeCompare(TOWN[b]||b));
   $('#fTown').innerHTML = '<option value="">all</option>' + towns.map(t=>`<option value="${t}">${TOWN[t]||t}</option>`).join('');
   initMap(); drawLayerBar(); setTiles(); drawLegend(); drawCharts();

@@ -29,13 +29,16 @@ M_PER_DEG_LON = 111320.0 * math.cos(math.radians(1.352))
 
 # layer -> (amenities.json source keys merged in order, benchmark metres)
 # benchmark = walkability yardstick used for gap coloring (user-adjustable in UI)
+# Priority order (drives the dashboard's display and score weights):
+# rent is scored separately; among map layers MRT > hawker > supermarket
+# > mall > primary school > infant care > community club.
 LAYERS = [
     ("mrt",    ["stations"],           800),   # station (mean of exits)
-    ("super",  ["ntuc", "shengsiong"], 500),
-    ("infantcare", ["infantcare"],     800),
-    ("school", ["school"],             1000),
-    ("mall",   ["mall"],               1000),
     ("hawker", ["hawker"],             500),
+    ("super",  ["ntuc", "shengsiong"], 500),
+    ("mall",   ["mall"],               1000),
+    ("school", ["school"],             1000),
+    ("infantcare", ["infantcare"],     800),
     ("communityclub", ["communityclub"], 1000),
 ]
 

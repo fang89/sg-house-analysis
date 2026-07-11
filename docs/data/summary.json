@@ -3,20 +3,20 @@
  "blocks": 13436,
  "layer_order": [
   "mrt",
-  "super",
-  "infantcare",
-  "school",
-  "mall",
   "hawker",
+  "super",
+  "mall",
+  "school",
+  "infantcare",
   "communityclub"
  ],
  "benchmarks": {
   "mrt": 800,
-  "super": 500,
-  "infantcare": 800,
-  "school": 1000,
-  "mall": 1000,
   "hawker": 500,
+  "super": 500,
+  "mall": 1000,
+  "school": 1000,
+  "infantcare": 800,
   "communityclub": 1000
  },
  "layers": {
@@ -29,6 +29,15 @@
    "blocks_over": 3752,
    "pct_within": 72.1
   },
+  "hawker": {
+   "count": 129,
+   "benchmark_m": 500,
+   "median_m": 640,
+   "p90_m": 1368,
+   "max_m": 2499,
+   "blocks_over": 8246,
+   "pct_within": 38.6
+  },
   "super": {
    "count": 216,
    "benchmark_m": 500,
@@ -37,24 +46,6 @@
    "max_m": 3265,
    "blocks_over": 4662,
    "pct_within": 65.3
-  },
-  "infantcare": {
-   "count": 890,
-   "benchmark_m": 800,
-   "median_m": 167,
-   "p90_m": 344,
-   "max_m": 3541,
-   "blocks_over": 26,
-   "pct_within": 99.8
-  },
-  "school": {
-   "count": 182,
-   "benchmark_m": 1000,
-   "median_m": 380,
-   "p90_m": 738,
-   "max_m": 3459,
-   "blocks_over": 408,
-   "pct_within": 97.0
   },
   "mall": {
    "count": 110,
@@ -65,14 +56,23 @@
    "blocks_over": 4287,
    "pct_within": 68.1
   },
-  "hawker": {
-   "count": 129,
-   "benchmark_m": 500,
-   "median_m": 640,
-   "p90_m": 1368,
-   "max_m": 2499,
-   "blocks_over": 8246,
-   "pct_within": 38.6
+  "school": {
+   "count": 182,
+   "benchmark_m": 1000,
+   "median_m": 380,
+   "p90_m": 738,
+   "max_m": 3459,
+   "blocks_over": 408,
+   "pct_within": 97.0
+  },
+  "infantcare": {
+   "count": 890,
+   "benchmark_m": 800,
+   "median_m": 167,
+   "p90_m": 344,
+   "max_m": 3541,
+   "blocks_over": 26,
+   "pct_within": 99.8
   },
   "communityclub": {
    "count": 130,
