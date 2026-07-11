@@ -7,7 +7,6 @@
   "mall",
   "mrt",
   "hawker",
-  "clinic",
   "communityclub"
  ],
  "benchmarks": {
@@ -16,7 +15,6 @@
   "mall": 1000,
   "mrt": 800,
   "hawker": 500,
-  "clinic": 500,
   "communityclub": 1000
  },
  "layers": {
@@ -64,15 +62,6 @@
    "max_m": 2499,
    "blocks_over": 8246,
    "pct_within": 38.6
-  },
-  "clinic": {
-   "count": 1052,
-   "benchmark_m": 500,
-   "median_m": 191,
-   "p90_m": 409,
-   "max_m": 2890,
-   "blocks_over": 719,
-   "pct_within": 94.6
   },
   "communityclub": {
    "count": 130,

@@ -165,10 +165,10 @@ td.bad{color:var(--st-critical);font-weight:600}
 </header>
 <p class="sub">How far is each of Singapore's ~13,400 HDB blocks from the nearest
 <b>FairPrice / Sheng Siong supermarket</b>, <b>primary school</b>, <b>shopping mall</b>,
-<b>MRT/LRT station</b>, <b>hawker centre</b> — plus clinics and community clubs.
-<b>Search a postal code or click any block</b> to see exactly what's around it, toggle
-amenity layers on the map, or switch to the <b>5-amenity score</b> view to see which
-neighbourhoods have everything within walking distance. Distances are straight-line.</p>
+<b>MRT/LRT station</b>, <b>hawker centre</b> — plus community clubs.
+<b>Search a postal code or click any block</b> to see exactly what's around it (including
+how many of each amenity are nearby), or switch to the <b>amenity score</b> view — each
+block scored out of 10 on how walkable its everyday amenities are. Distances are straight-line.</p>
 
 <div class="tiles" id="tiles"></div>
 
@@ -181,7 +181,7 @@ neighbourhoods have everything within walking distance. Distances are straight-l
   </span>
   <label>amenity <select id="fFocus"></select></label>
   <span class="seg" id="modeSeg" role="group" aria-label="Colour mode">
-    <button data-m="plain" class="on">Explore</button><button data-m="score">5-amenity score</button>
+    <button data-m="plain" class="on">Explore</button><button data-m="score">Amenity score /10</button>
   </span>
   <label id="benchWrap">within <select id="fBench">
     <option>300</option><option>400</option><option>500</option><option>800</option>
@@ -221,13 +221,14 @@ neighbourhoods have everything within walking distance. Distances are straight-l
   <h2>Method, sources & caveats</h2>
   <ul>
     <li><b>Distances are straight-line</b> from the HDB building centroid — an easy, consistent yardstick, but real walks are longer (roads, blocks, canals). MRT/LRT distance is to the <i>station</i> (the mean position of its exits).</li>
-    <li><b>Default benchmarks</b> (adjustable above): supermarket / hawker / clinic 500&#8202;m, MRT 800&#8202;m, school / mall / community club 1&#8202;km. These are editorial yardsticks, not official standards.</li>
+    <li><b>Amenity score (0–10)</b>: five everyday amenity types — supermarket, primary school, mall, MRT/LRT station, hawker centre — each contribute <b>2 points</b> if the nearest one is within its benchmark distance, <b>1 point</b> if within 1.5× the benchmark ("a stretch, but walkable"), <b>0</b> beyond that. Benchmarks: supermarket &amp; hawker 500&#8202;m (1&#8202;pt ≤&#8202;750&#8202;m), MRT 800&#8202;m (1&#8202;pt ≤&#8202;1.2&#8202;km), school &amp; mall 1&#8202;km (1&#8202;pt ≤&#8202;1.5&#8202;km). A 10/10 block has everything at a comfortable walk; ≤4/10 means most daily errands need a bus or a long walk. Community clubs are mapped but not scored. All amenity types weigh equally — the score measures <i>completeness</i> of daily amenities, not any one type's quality; having several of one type nearby doesn't add points (it shows in the block panel instead).</li>
+    <li><b>Benchmarks are editorial yardsticks</b> (adjustable above for the charts), not official standards.</li>
     <li><b>HDB blocks</b>: <a href="https://data.gov.sg/datasets/d_16b157c52ed637edd6ba1232e026258d/view">HDB Existing Building</a> footprints (data.gov.sg) — includes every HDB building, so some points are multi-storey carparks or commercial blocks.</li>
     <li><b>Supermarkets</b>: SFA licensed-supermarket register (data.gov.sg), filtered to NTUC FairPrice and Sheng Siong licences, geocoded by postal code via OneMap. Licence address ≈ store address. Other chains (Giant, Cold Storage, Prime…) are excluded by design.</li>
     <li><b>Primary schools</b>: MOE School Directory (data.gov.sg), PRIMARY and mixed-level (P1–S4) schools, geocoded by postal code. Note: home-to-school priority uses 1&#8202;km/2&#8202;km <i>as defined by SLA for the address</i>, which differs slightly from centroid distance.</li>
     <li><b>Malls</b>: editorial list of ~110 major malls (Wikipedia), geocoded via OneMap search — boutique/strip malls omitted.</li>
     <li><b>MRT/LRT</b>: LTA station-exit layer (data.gov.sg), including LRT; a station's position is the mean of its exits. When a block sits between two stations, the runner-up is called out in its panel.</li>
-    <li><b>Hawker centres</b>: NEA register (data.gov.sg). <b>Clinics</b>: CHAS GP clinics, MOH (dental excluded). <b>Community clubs</b>: PA.</li>
+    <li><b>Hawker centres</b>: NEA register (data.gov.sg). <b>Community clubs</b>: PA.</li>
     <li>All data.gov.sg datasets under the <a href="https://data.gov.sg/open-data-licence">Singapore Open Data Licence</a>; geocoding © <a href="https://www.onemap.gov.sg/">OneMap</a>/SLA; basemap © OpenStreetMap contributors, © CARTO.</li>
     <li>Generated <span id="genDate"></span>. Code &amp; data: <a id="repoLink" href="https://github.com/fang89/hdb-amenities">GitHub</a>.</li>
   </ul>
@@ -249,10 +250,16 @@ const LAYERS = {
   mall:   {label:'Shopping mall', short:'mall', cssVar:'--c-mall', shape:'circle'},
   mrt:    {label:'MRT / LRT station', short:'MRT/LRT station', cssVar:'--c-mrt', shape:'badge'},
   hawker: {label:'Hawker centre', short:'hawker centre', cssVar:'--c-hawker', shape:'circle'},
-  clinic: {label:'CHAS GP clinic', short:'CHAS clinic', cssVar:'--c-clinic', shape:'circle'},
   communityclub:{label:'Community club', short:'community club', cssVar:'--c-cc', shape:'circle'},
 };
-const SCORE_LAYERS = ['super','school','mall','mrt','hawker']; // the 5 headline amenities
+// Amenity score, out of 10: the 5 everyday amenity types each contribute
+// 0-2 points by distance band — 2 within the benchmark, 1 within 1.5x the
+// benchmark, 0 beyond. Community clubs are mapped but not scored.
+const SCORE_LAYERS = ['super','school','mall','mrt','hawker'];
+const layerPts = (b, l) => {
+  const d = dist(b, l), B = SUM.benchmarks[l];
+  return d <= B ? 2 : d <= 1.5 * B ? 1 : 0;
+};
 const TOWN = {AMK:'Ang Mo Kio',BB:'Bukit Batok',BD:'Bedok',BH:'Bishan',BM:'Bukit Merah',
   BP:'Bukit Panjang',BT:'Bukit Timah',CCK:'Choa Chu Kang',CL:'Clementi',CT:'Central Area',
   GL:'Geylang',HG:'Hougang',JE:'Jurong East',JW:'Jurong West',KWN:'Kallang/Whampoa',
@@ -269,7 +276,7 @@ const S = { focus:'super', mode:'plain', bench:500, town:'', circles:false,
 
 const dist = (b, layer) => b[COL[layer || S.focus]];
 const nearIdx = (b, layer) => b[COL[layer || S.focus] + 1];
-const score = b => SCORE_LAYERS.reduce((n,l) => n + (dist(b,l) <= SUM.benchmarks[l] ? 1 : 0), 0);
+const score = b => SCORE_LAYERS.reduce((n,l) => n + layerPts(b, l), 0);  // 0-10
 const townOf = b => TOWN[b[5]] || (b[5] || 'No town code');
 
 /* ---------- theme ---------- */
@@ -297,14 +304,14 @@ const TILES = {
 };
 const ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>';
 
-function scoreColor(n){
+function scoreColor(n){  // n out of 10
   return [css('--st-critical'), css('--st-serious'), '#c9a227',
-          css('--blk-covered'), '#5daa5d', css('--st-good')][n];
+          css('--blk-covered'), '#5daa5d', css('--st-good')][Math.round(n / 2)];
 }
 function blockStyle(b){
   if (S.mode === 'score'){
     const n = score(b);
-    return {color:scoreColor(n), r:n <= 2 ? 5.5 : 3, op:.9};
+    return {color:scoreColor(n), r:n <= 4 ? 5.5 : 3, op:.9};
   }
   return {color:css('--blk-covered'), r:2.5, op:.5};  // Explore: neutral dots
 }
@@ -372,7 +379,7 @@ function drawBlocks(){
       return;
     }
     if (S.town && b[5] !== S.town) return;
-    if (S.mode === 'score' && score(b) === 5) return;          // fully served hidden
+    if (S.mode === 'score' && score(b) === 10) return;         // fully served hidden
     // 'plain' (Explore) draws every block as a small neutral dot
     const st = blockStyle(b);
     L.circleMarker([b[2], b[3]], {radius:st.r, stroke:false,
@@ -409,19 +416,23 @@ function amenMarker(l, pt, opts = {}){
   return m.bindPopup(amenPopup(l, name, sub));
 }
 
-function secondStation(b){
-  // runner-up MRT/LRT station: worth calling out when the block sits
-  // between two stations (runner-up within 1.2 km and not much farther
-  // than the nearest one)
-  const d1 = dist(b, 'mrt'), i1 = nearIdx(b, 'mrt');
-  let best = Infinity, bj = -1;
-  (AMEN.mrt || []).forEach((pt, j) => {
+function nearbyInfo(b, l){
+  // how many of this amenity sit within 1 km (beyond the nearest one),
+  // and which is the runner-up — so "a few supermarkets / schools /
+  // hawkers around" is called out, not just the single nearest
+  const i1 = nearIdx(b, l);
+  let count = 0, best = Infinity, bj = -1;
+  (AMEN[l] || []).forEach((pt, j) => {
     if (j === i1) return;
     const d = dMetres(b[2], b[3], pt[1], pt[2]);
+    if (d <= NEARBY_M) count++;
     if (d < best){ best = d; bj = j; }
   });
-  if (bj < 0 || best > 1200 || best > d1 * 2.2) return null;
-  return {pt:AMEN.mrt[bj], d:Math.round(best), between:best - d1 <= 300};
+  if (bj < 0) return {count};
+  const d1 = dist(b, l);
+  const second = (best <= NEARBY_M * 1.2 && best <= d1 * 2.2)
+    ? {pt:AMEN[l][bj], d:Math.round(best), between:best - d1 <= 300} : null;
+  return {count, second};
 }
 
 function selectBlock(i){
@@ -441,9 +452,9 @@ function selectBlock(i){
     nearestMarkers[l] = amenMarker(l, pt, {big:true}).addTo(fl);
   }
   // between two stations? draw a thinner line to the runner-up as well
-  const alt = secondStation(b);
-  if (alt){
-    L.polyline([[b[2], b[3]], [alt.pt[1], alt.pt[2]]], {color:css('--c-mrt'),
+  const mrtAlt = nearbyInfo(b, 'mrt').second;
+  if (mrtAlt){
+    L.polyline([[b[2], b[3]], [mrtAlt.pt[1], mrtAlt.pt[2]]], {color:css('--c-mrt'),
       weight:1.5, dashArray:'2,6', opacity:.6, interactive:false}).addTo(fl);
   }
   // all other amenities within walking range, as smaller context markers
@@ -467,20 +478,22 @@ function selectBlock(i){
 }
 
 function renderFocusPanel(b, nearestMarkers){
-  const alt = secondStation(b);
   const rows = ORDER.map(l => {
     const d = dist(b, l), pt = (AMEN[l] || [])[nearIdx(b, l)];
     const over = d > SUM.benchmarks[l];
     const c = layerColor(l, pt && pt[3]);
-    const hollow = LAYERS[l].shape === 'hollow';
+    const info = nearbyInfo(b, l);
     let what = LAYERS[l].short;
+    if (SCORE_LAYERS.includes(l)) what += ` · ${layerPts(b, l)}/2 pts`;
+    if (l === 'mrt' && info.second && info.second.between)
+      what = `<b>between two stations</b> · ${layerPts(b, l)}/2 pts`;
     let extra = '';
-    if (l === 'mrt' && alt){
-      what = alt.between ? '<b>between two stations</b>' : 'MRT/LRT station';
-      extra = `<div class="what">also near: ${alt.pt[0]} · ${fmt(alt.d)} m</div>`;
+    if (info.second && (l === 'mrt' || info.count >= 1)){
+      const more = info.count > 1 ? ` (+${info.count} within 1 km)` : '';
+      extra = `<div class="what">also near: ${info.second.pt[0]} · ${fmt(info.second.d)} m${more}</div>`;
     }
     return `<div class="row" data-l="${l}">
-      <span class="sw" style="${hollow ? 'border:2.5px solid '+c : 'background:'+c}${LAYERS[l].shape==='badge' ? ';border-radius:3px' : ''}"></span>
+      <span class="sw" style="background:${c}${LAYERS[l].shape==='badge' ? ';border-radius:3px' : ''}"></span>
       <span class="nm"><div>${pt ? pt[0] : '—'}</div><div class="what">${what}</div>${extra}</span>
       <span class="d${over ? ' over' : ''}">${fmt(d)} m${over ? ' ▲' : ''}</span>
     </div>`;
@@ -489,9 +502,9 @@ function renderFocusPanel(b, nearestMarkers){
   p.innerHTML = `<button class="close" aria-label="Back to overview">✕ overview</button>
     <h3>Blk ${b[1]}${b[4] ? ' ' + b[4] : ''}</h3>
     <div class="meta">${townOf(b)}${b[0] ? ' · S(' + b[0] + ')' : ''}${b[6] ? ' · ' + fmt(b[6]) + ' units' : ''}
-      · score <b>${score(b)}/5</b></div>
+      · score <b>${score(b)}/10</b></div>
     ${rows}
-    <div class="hint">Nearest of each amenity (dashed lines); smaller markers = everything within 1 km. ▲ beyond its benchmark. Click a row to see it, another block to switch, or Esc to exit.</div>`;
+    <div class="hint">Nearest of each amenity (dashed lines); smaller markers = everything within 1 km. ▲ beyond its benchmark. Score: each of the 5 everyday amenities gives 2 pts within its benchmark, 1 pt within 1.5×. Click a row to see it, another block to switch, or Esc to exit.</div>`;
   p.style.display = 'block';
   p.querySelector('.close').onclick = clearFocus;
   p.querySelectorAll('.row').forEach(r => {
@@ -541,7 +554,7 @@ function drawLegend(){
     return `<span><span class="sw" style="${style}"></span>${LAYERS[l].label}</span>`;
   }).join('');
   if (S.mode === 'score'){
-    el.innerHTML = `<span><span class="ramp score"></span>block: how many of the 5 headline amenities are within their benchmark (0 → 5; fully-served blocks hidden)</span>` + marks;
+    el.innerHTML = `<span><span class="ramp score"></span>block: amenity score 0 → 10 (2 pts per everyday amenity within its benchmark, 1 pt within 1.5×; perfect-10 blocks hidden — see Method below)</span>` + marks;
   } else {
     el.innerHTML = `<span><span class="sw" style="background:${css('--blk-covered')}"></span>HDB block — <b>click one (or search above)</b> to see every amenity around it</span>` + marks;
   }
@@ -552,14 +565,14 @@ function setTiles(){
   const rows = BLOCKS.filter(b => !S.town || b[5] === S.town);
   const n = rows.length;
   if (S.mode === 'score'){
-    const full = rows.filter(b => score(b) === 5).length;
-    const low = rows.filter(b => score(b) <= 2).length;
+    const full = rows.filter(b => score(b) === 10).length;
+    const low = rows.filter(b => score(b) <= 4).length;
     const med = [...rows].map(score).sort((a,b)=>a-b)[Math.floor(n/2)];
     $('#tiles').innerHTML = tilesHtml([
       [fmt(n), 'HDB blocks' + (S.town ? ' in ' + TOWN[S.town] : '')],
-      [med + '/5', 'median amenity score'],
-      [(100*full/n).toFixed(1) + '%', 'blocks with all 5 within reach', false, true],
-      [fmt(low), 'blocks with ≤2 of 5 amenities', low > 0],
+      [med + '/10', 'median amenity score'],
+      [(100*full/n).toFixed(1) + '%', 'blocks scoring a perfect 10', false, true],
+      [fmt(low), 'blocks scoring ≤4/10', low > 0],
       [fmt(SUM.layers.super.count), 'FairPrice + Sheng Siong stores'],
       [fmt(SUM.stations.mrt + SUM.stations.lrt), 'MRT + LRT stations'],
     ]);
@@ -596,18 +609,18 @@ function drawHist(){
         m = {t:14, r:8, b:26, l:8};
   const rows = BLOCKS.filter(b => !S.town || b[5] === S.town);
   if (S.mode === 'score'){
-    $('#histTitle').textContent = '5-amenity score distribution';
-    $('#histNote').textContent = 'headline amenities (supermarket, school, mall, MRT, hawker) within their benchmark distances';
-    const bins = [0,0,0,0,0,0];
+    $('#histTitle').textContent = 'Amenity score distribution (0–10)';
+    $('#histNote').textContent = '2 pts per everyday amenity (supermarket, school, mall, MRT, hawker) within its benchmark, 1 pt within 1.5×';
+    const bins = Array(11).fill(0);
     rows.forEach(b => bins[score(b)]++);
-    const bw = (W-m.l-m.r)/6, ymax = Math.max(...bins);
+    const bw = (W-m.l-m.r)/11, ymax = Math.max(...bins);
     const yy = v => m.t + (H-m.t-m.b)*(1-v/ymax);
     let s = `<svg width="${W}" height="${H}" role="img" aria-label="Score distribution">`;
     bins.forEach((v,i)=>{
       const x = m.l+i*bw, y = yy(v), h = H-m.b-y;
-      s += `<rect data-tt="<b>${fmt(v)}</b> blocks with ${i}/5 amenities in reach" x="${x+2}" y="${y}" width="${bw-4}" height="${Math.max(h,0)}" rx="3" fill="${scoreColor(i)}"></rect>
-            <text class="direct" x="${x+bw/2}" y="${y-4}" text-anchor="middle">${fmt(v)}</text>
-            <text x="${x+bw/2}" y="${H-8}" text-anchor="middle">${i}/5</text>`;
+      s += `<rect data-tt="<b>${fmt(v)}</b> blocks scoring ${i}/10" x="${x+2}" y="${y}" width="${bw-4}" height="${Math.max(h,0)}" rx="3" fill="${scoreColor(i)}"></rect>`;
+      if (v > 0 && bw > 26) s += `<text class="direct" x="${x+bw/2}" y="${y-4}" text-anchor="middle">${fmt(v)}</text>`;
+      s += `<text x="${x+bw/2}" y="${H-8}" text-anchor="middle">${i}</text>`;
     });
     s += `<line x1="${m.l}" y1="${H-m.b}" x2="${W-m.r}" y2="${H-m.b}" stroke="${css('--baseline')}"/></svg>`;
     el.innerHTML = s; hookTT(el);
@@ -649,8 +662,8 @@ function drawTowns(){
   if (S.mode === 'score'){
     rows = Object.entries(agg).map(([t,vs]) =>
       [t, vs.reduce((a,v)=>a+v,0)/vs.length, vs.length]).sort((a,b)=>a[1]-b[1]);
-    fmtV = v => v.toFixed(2);
-    title = 'Towns by average 5-amenity score';
+    fmtV = v => v.toFixed(1) + '/10';
+    title = 'Towns by average amenity score';
     note = 'lower = fewer everyday amenities within walking distance';
   } else {
     rows = Object.entries(agg).map(([t,vs]) =>
@@ -704,7 +717,7 @@ function drawTable(){
     $('#worst').innerHTML =
       `<tr><th>Block</th><th>Town</th><th style="text-align:right">Score</th>` +
       SCORE_LAYERS.map(l=>`<th style="text-align:right">${LAYERS[l].short}</th>`).join('') + `</tr>` +
-      worst.map(b=>`<tr><td>Blk ${b[1]} ${b[4]||''}</td><td>${townOf(b)}</td><td class="num bad">${score(b)}/5</td>` +
+      worst.map(b=>`<tr><td>Blk ${b[1]} ${b[4]||''}</td><td>${townOf(b)}</td><td class="num bad">${score(b)}/10</td>` +
         SCORE_LAYERS.map(l=>`<td class="num${dist(b,l)>SUM.benchmarks[l]?' bad':''}">${fmt(dist(b,l))} m</td>`).join('') + `</tr>`).join('');
     return;
   }

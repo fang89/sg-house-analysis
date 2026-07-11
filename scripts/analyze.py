@@ -35,7 +35,6 @@ LAYERS = [
     ("mall",   ["mall"],               1000),
     ("mrt",    ["stations"],           800),   # station (mean of exits)
     ("hawker", ["hawker"],             500),
-    ("clinic", ["clinic"],             500),
     ("communityclub", ["communityclub"], 1000),
 ]
 

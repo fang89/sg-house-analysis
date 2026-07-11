@@ -6,16 +6,16 @@ Interactive map of how far every HDB block in Singapore is from the nearest:
 - **Primary school** (182 schools, MOE School Directory)
 - **Shopping mall** (110 major malls, editorial list)
 - **MRT / LRT station** (186, position = mean of the LTA exit layer)
-- **Hawker centre** (129, NEA) — plus **CHAS GP clinics** (1,052) and
-  **community clubs** (130)
+- **Hawker centre** (129, NEA) — plus **community clubs** (130)
 
 **Search a postal code / address (OneMap) or click any block** to focus it:
 dashed lines point to the nearest of each amenity, everything within 1 km
-appears around it, and a panel lists the lot — including the runner-up MRT
-station when the block sits between two.
-Or switch to the **5-amenity score** view to see which neighbourhoods have a
-supermarket, primary school, mall, MRT exit *and* hawker centre all within
-walking distance. Every layer can be overlaid as markers on the map.
+appears around it, and a panel lists the lot — how many of each amenity are
+nearby, the runner-up option, and "between two stations" when that's the case.
+Or switch to the **amenity score** view: each block scored **0–10** — the five
+everyday amenity types (supermarket, primary school, mall, MRT/LRT, hawker)
+each give 2 points within their benchmark distance, 1 point within 1.5× it.
+Every layer can be overlaid as markers on the map.
 
 **Live dashboard:** https://fang89.github.io/hdb-amenities/ *(after Pages is enabled)*
 
@@ -28,9 +28,9 @@ walking distance. Every layer can be overlaid as markers on the map.
 - **75%** are within 800 m of an MRT/LRT exit (median 505 m)
 - Hawker centres are the scarcest headline amenity: median 640 m, only **39%**
   of blocks within 500 m
-- **17%** of blocks have all 5 headline amenities within their benchmark
-  distances; Tengah, Pasir Ris and Yishun have the lowest average scores
-  (new estates where amenities are still building out)
+- **16%** of blocks score a perfect 10/10 (all five everyday amenities within
+  a comfortable walk); Tengah, Pasir Ris and Yishun have the lowest average
+  scores (new estates where amenities are still building out)
 
 ## Repo layout
 
@@ -57,7 +57,6 @@ Raw inputs in `data/` and how to re-download them:
 | `malls.txt` | editorial list (Wikipedia "List of shopping malls in Singapore"), names OneMap-searchable |
 | `mrt_exits.geojson` | [LTA MRT/LRT Station Exit](https://data.gov.sg/datasets/d_b39d3a0871985372d7e1637193335da5/view) |
 | `hawker_centres.geojson` | [NEA Hawker Centres](https://data.gov.sg/datasets/d_4a086da0a5553be1d89383cd90d07ecd/view) |
-| `extra_clinic.geojson` | [MOH CHAS Clinics](https://data.gov.sg/datasets/d_548c33ea2d99e29ec63a7cc9edcccedc/view) (medical only, dental dropped) |
 | `extra_communityclub.geojson` | [PA Community Clubs](https://data.gov.sg/datasets/d_9de02d3fb33d96da1855f4fbef549a0f/view) |
 | `hdb_blocks_base.json` | HDB block centroids derived from [HDB Existing Building](https://data.gov.sg/datasets/d_16b157c52ed637edd6ba1232e026258d/view) (see the [atm-500m](https://github.com/fang89/atm-500m) pipeline) |
 
@@ -79,9 +78,14 @@ Push to GitHub → repo Settings → Pages → "Deploy from a branch" → branch
 
 - **Distances are straight-line** from the HDB building centroid; real walking
   routes are longer. MRT/LRT distance is to the *station* (mean of its exits).
-- **Benchmarks are editorial yardsticks** (supermarket/hawker/clinic 500 m,
-  MRT 800 m, school/mall/CC 1 km), adjustable in the UI — they are not
-  official standards.
+- **Amenity score (0–10)**: supermarket, primary school, mall, MRT/LRT and
+  hawker centre each contribute 2 pts if the nearest is within its benchmark
+  (supermarket/hawker 500 m, MRT 800 m, school/mall 1 km), 1 pt within 1.5×
+  the benchmark, 0 beyond. Types weigh equally; abundance (several of one
+  type) is shown in the block panel but not scored. Community clubs are
+  mapped, not scored.
+- **Benchmarks are editorial yardsticks**, adjustable in the UI — they are
+  not official standards.
 - The HDB layer includes **every HDB building** (some are carparks or
   commercial blocks), so a few "blocks" have no residents.
 - Supermarkets are **FairPrice and Sheng Siong only**, per the licence
