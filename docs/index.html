@@ -165,7 +165,7 @@ td.bad{color:var(--st-critical);font-weight:600}
 </header>
 <p class="sub">How far is each of Singapore's ~13,400 HDB blocks from the nearest
 <b>FairPrice / Sheng Siong supermarket</b>, <b>primary school</b>, <b>shopping mall</b>,
-<b>MRT/LRT exit</b>, <b>hawker centre</b> — plus clinics, community clubs, libraries and parks.
+<b>MRT/LRT station</b>, <b>hawker centre</b> — plus clinics and community clubs.
 <b>Search a postal code or click any block</b> to see exactly what's around it, toggle
 amenity layers on the map, or switch to the <b>5-amenity score</b> view to see which
 neighbourhoods have everything within walking distance. Distances are straight-line.</p>
@@ -220,14 +220,14 @@ neighbourhoods have everything within walking distance. Distances are straight-l
 <div class="method">
   <h2>Method, sources & caveats</h2>
   <ul>
-    <li><b>Distances are straight-line</b> from the HDB building centroid — an easy, consistent yardstick, but real walks are longer (roads, blocks, canals). MRT/LRT distance is to the nearest <i>station exit</i>, not the platform.</li>
-    <li><b>Default benchmarks</b> (adjustable above): supermarket / hawker / clinic 500&#8202;m, MRT 800&#8202;m, park 800&#8202;m, school / mall / community club 1&#8202;km, library 2&#8202;km. These are editorial yardsticks, not official standards.</li>
+    <li><b>Distances are straight-line</b> from the HDB building centroid — an easy, consistent yardstick, but real walks are longer (roads, blocks, canals). MRT/LRT distance is to the <i>station</i> (the mean position of its exits).</li>
+    <li><b>Default benchmarks</b> (adjustable above): supermarket / hawker / clinic 500&#8202;m, MRT 800&#8202;m, school / mall / community club 1&#8202;km. These are editorial yardsticks, not official standards.</li>
     <li><b>HDB blocks</b>: <a href="https://data.gov.sg/datasets/d_16b157c52ed637edd6ba1232e026258d/view">HDB Existing Building</a> footprints (data.gov.sg) — includes every HDB building, so some points are multi-storey carparks or commercial blocks.</li>
     <li><b>Supermarkets</b>: SFA licensed-supermarket register (data.gov.sg), filtered to NTUC FairPrice and Sheng Siong licences, geocoded by postal code via OneMap. Licence address ≈ store address. Other chains (Giant, Cold Storage, Prime…) are excluded by design.</li>
     <li><b>Primary schools</b>: MOE School Directory (data.gov.sg), PRIMARY and mixed-level (P1–S4) schools, geocoded by postal code. Note: home-to-school priority uses 1&#8202;km/2&#8202;km <i>as defined by SLA for the address</i>, which differs slightly from centroid distance.</li>
     <li><b>Malls</b>: editorial list of ~110 major malls (Wikipedia), geocoded via OneMap search — boutique/strip malls omitted.</li>
-    <li><b>MRT/LRT</b>: LTA station-exit layer (data.gov.sg), including LRT; station markers are the mean of their exits.</li>
-    <li><b>Hawker centres</b>: NEA register (data.gov.sg). <b>Clinics</b>: CHAS GP clinics, MOH (dental excluded). <b>Community clubs</b>: PA. <b>Libraries</b>: NLB. <b>Parks</b>: NParks managed-area points.</li>
+    <li><b>MRT/LRT</b>: LTA station-exit layer (data.gov.sg), including LRT; a station's position is the mean of its exits. When a block sits between two stations, the runner-up is called out in its panel.</li>
+    <li><b>Hawker centres</b>: NEA register (data.gov.sg). <b>Clinics</b>: CHAS GP clinics, MOH (dental excluded). <b>Community clubs</b>: PA.</li>
     <li>All data.gov.sg datasets under the <a href="https://data.gov.sg/open-data-licence">Singapore Open Data Licence</a>; geocoding © <a href="https://www.onemap.gov.sg/">OneMap</a>/SLA; basemap © OpenStreetMap contributors, © CARTO.</li>
     <li>Generated <span id="genDate"></span>. Code &amp; data: <a id="repoLink" href="https://github.com/fang89/hdb-amenities">GitHub</a>.</li>
   </ul>
@@ -247,12 +247,10 @@ const LAYERS = {
   super:  {label:'Supermarket (FairPrice / Sheng Siong)', short:'supermarket', cssVar:null, shape:'circle'},
   school: {label:'Primary school', short:'primary school', cssVar:'--c-school', shape:'circle'},
   mall:   {label:'Shopping mall', short:'mall', cssVar:'--c-mall', shape:'circle'},
-  mrt:    {label:'MRT / LRT', short:'MRT/LRT exit', cssVar:'--c-mrt', shape:'badge'},
+  mrt:    {label:'MRT / LRT station', short:'MRT/LRT station', cssVar:'--c-mrt', shape:'badge'},
   hawker: {label:'Hawker centre', short:'hawker centre', cssVar:'--c-hawker', shape:'circle'},
   clinic: {label:'CHAS GP clinic', short:'CHAS clinic', cssVar:'--c-clinic', shape:'circle'},
   communityclub:{label:'Community club', short:'community club', cssVar:'--c-cc', shape:'circle'},
-  library:{label:'Public library', short:'library', cssVar:'--c-library', shape:'badge'},
-  park:   {label:'Park', short:'park', cssVar:'--c-park', shape:'hollow'},
 };
 const SCORE_LAYERS = ['super','school','mall','mrt','hawker']; // the 5 headline amenities
 const TOWN = {AMK:'Ang Mo Kio',BB:'Bukit Batok',BD:'Bedok',BH:'Bishan',BM:'Bukit Merah',
@@ -411,6 +409,21 @@ function amenMarker(l, pt, opts = {}){
   return m.bindPopup(amenPopup(l, name, sub));
 }
 
+function secondStation(b){
+  // runner-up MRT/LRT station: worth calling out when the block sits
+  // between two stations (runner-up within 1.2 km and not much farther
+  // than the nearest one)
+  const d1 = dist(b, 'mrt'), i1 = nearIdx(b, 'mrt');
+  let best = Infinity, bj = -1;
+  (AMEN.mrt || []).forEach((pt, j) => {
+    if (j === i1) return;
+    const d = dMetres(b[2], b[3], pt[1], pt[2]);
+    if (d < best){ best = d; bj = j; }
+  });
+  if (bj < 0 || best > 1200 || best > d1 * 2.2) return null;
+  return {pt:AMEN.mrt[bj], d:Math.round(best), between:best - d1 <= 300};
+}
+
 function selectBlock(i){
   S.sel = i;
   if (window.__searchPin){ map.removeLayer(window.__searchPin); window.__searchPin = null; }
@@ -425,35 +438,21 @@ function selectBlock(i){
     if (!pt) continue;
     L.polyline([[b[2], b[3]], [pt[1], pt[2]]], {color:layerColor(l, pt[3]),
       weight:2, dashArray:'5,5', opacity:.75, interactive:false}).addTo(fl);
-    if (l === 'mrt'){
-      // the line points at the nearest station EXIT — mark it small and
-      // explicit; the station badge itself comes from the context loop
-      nearestMarkers[l] = L.circleMarker([pt[1], pt[2]], {radius:5,
-        color:css('--c-mrt'), weight:2.5, fillColor:'#fff', fillOpacity:1})
-        .bindPopup(`<b>${pt[0]}</b><br><span style="color:${css('--c-mrt')}">●</span> nearest ${pt[3] === 'lrt' ? 'LRT' : 'MRT'} exit`)
-        .addTo(fl);
-    } else {
-      nearestMarkers[l] = amenMarker(l, pt, {big:true}).addTo(fl);
-    }
+    nearestMarkers[l] = amenMarker(l, pt, {big:true}).addTo(fl);
+  }
+  // between two stations? draw a thinner line to the runner-up as well
+  const alt = secondStation(b);
+  if (alt){
+    L.polyline([[b[2], b[3]], [alt.pt[1], alt.pt[2]]], {color:css('--c-mrt'),
+      weight:1.5, dashArray:'2,6', opacity:.6, interactive:false}).addTo(fl);
   }
   // all other amenities within walking range, as smaller context markers
   for (const l of ORDER){
-    if (l === 'mrt') continue; // stations, not 597 exits, drawn below
     (AMEN[l] || []).forEach((pt, j) => {
       if (j === nearIdx(b, l)) return;
       if (dMetres(b[2], b[3], pt[1], pt[2]) <= NEARBY_M)
         amenMarker(l, pt).addTo(fl);
     });
-  }
-  // MRT/LRT context = main stations only
-  for (const [name, lat, lon, kind, exits] of STATIONS){
-    if (dMetres(b[2], b[3], lat, lon) > NEARBY_M) continue;
-    const sz = kind === 'lrt' ? 14 : 18;
-    L.marker([lat, lon], {icon:L.divIcon({className:'',
-      html:`<div class="mrt-badge" style="width:${sz}px;height:${sz}px;background:${css('--c-mrt')};opacity:${kind==='lrt'?0.75:1}">${kind==='lrt'?'L':'M'}</div>`,
-      iconSize:[sz,sz], iconAnchor:[sz/2,sz/2]})})
-      .bindPopup(`<b>${name}</b><br><span style="color:${css('--c-mrt')}">■</span> ${kind.toUpperCase()} station · ${exits} exit${exits>1?'s':''}`)
-      .addTo(fl);
   }
   // the selected block on top
   L.circleMarker([b[2], b[3]], {radius:9, color:'#fff', weight:3,
@@ -468,14 +467,21 @@ function selectBlock(i){
 }
 
 function renderFocusPanel(b, nearestMarkers){
+  const alt = secondStation(b);
   const rows = ORDER.map(l => {
     const d = dist(b, l), pt = (AMEN[l] || [])[nearIdx(b, l)];
     const over = d > SUM.benchmarks[l];
     const c = layerColor(l, pt && pt[3]);
     const hollow = LAYERS[l].shape === 'hollow';
+    let what = LAYERS[l].short;
+    let extra = '';
+    if (l === 'mrt' && alt){
+      what = alt.between ? '<b>between two stations</b>' : 'MRT/LRT station';
+      extra = `<div class="what">also near: ${alt.pt[0]} · ${fmt(alt.d)} m</div>`;
+    }
     return `<div class="row" data-l="${l}">
       <span class="sw" style="${hollow ? 'border:2.5px solid '+c : 'background:'+c}${LAYERS[l].shape==='badge' ? ';border-radius:3px' : ''}"></span>
-      <span class="nm"><div>${pt ? pt[0] : '—'}</div><div class="what">${LAYERS[l].short}</div></span>
+      <span class="nm"><div>${pt ? pt[0] : '—'}</div><div class="what">${what}</div>${extra}</span>
       <span class="d${over ? ' over' : ''}">${fmt(d)} m${over ? ' ▲' : ''}</span>
     </div>`;
   }).join('');

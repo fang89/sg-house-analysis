@@ -5,13 +5,14 @@ Interactive map of how far every HDB block in Singapore is from the nearest:
 - **FairPrice / Sheng Siong supermarket** (216 stores, SFA licence register)
 - **Primary school** (182 schools, MOE School Directory)
 - **Shopping mall** (110 major malls, editorial list)
-- **MRT / LRT station exit** (186 stations, 597 exits, LTA)
-- **Hawker centre** (129, NEA) — plus **CHAS GP clinics** (1,052), **community
-  clubs** (130), **public libraries** (27) and **parks** (461)
+- **MRT / LRT station** (186, position = mean of the LTA exit layer)
+- **Hawker centre** (129, NEA) — plus **CHAS GP clinics** (1,052) and
+  **community clubs** (130)
 
 **Search a postal code / address (OneMap) or click any block** to focus it:
-dashed lines point to the nearest of each amenity (including the nearest MRT
-exit), everything within 1 km appears around it, and a panel lists the lot.
+dashed lines point to the nearest of each amenity, everything within 1 km
+appears around it, and a panel lists the lot — including the runner-up MRT
+station when the block sits between two.
 Or switch to the **5-amenity score** view to see which neighbourhoods have a
 supermarket, primary school, mall, MRT exit *and* hawker centre all within
 walking distance. Every layer can be overlaid as markers on the map.
@@ -58,8 +59,6 @@ Raw inputs in `data/` and how to re-download them:
 | `hawker_centres.geojson` | [NEA Hawker Centres](https://data.gov.sg/datasets/d_4a086da0a5553be1d89383cd90d07ecd/view) |
 | `extra_clinic.geojson` | [MOH CHAS Clinics](https://data.gov.sg/datasets/d_548c33ea2d99e29ec63a7cc9edcccedc/view) (medical only, dental dropped) |
 | `extra_communityclub.geojson` | [PA Community Clubs](https://data.gov.sg/datasets/d_9de02d3fb33d96da1855f4fbef549a0f/view) |
-| `extra_library.geojson` | [NLB Libraries](https://data.gov.sg/datasets/d_27b8dae65d9ca1539e14d09578b17cbf/view) |
-| `extra_park.geojson` | [NParks Parks](https://data.gov.sg/datasets/d_0542d48f0991541706b58059381a6eca/view) |
 | `hdb_blocks_base.json` | HDB block centroids derived from [HDB Existing Building](https://data.gov.sg/datasets/d_16b157c52ed637edd6ba1232e026258d/view) (see the [atm-500m](https://github.com/fang89/atm-500m) pipeline) |
 
 Any additional `data/extra_<name>.geojson` you drop in is picked up
@@ -79,10 +78,10 @@ Push to GitHub → repo Settings → Pages → "Deploy from a branch" → branch
 ## Method & caveats
 
 - **Distances are straight-line** from the HDB building centroid; real walking
-  routes are longer. MRT/LRT distance is to the nearest *station exit*.
+  routes are longer. MRT/LRT distance is to the *station* (mean of its exits).
 - **Benchmarks are editorial yardsticks** (supermarket/hawker/clinic 500 m,
-  MRT/park 800 m, school/mall/CC 1 km, library 2 km), adjustable in the UI —
-  they are not official standards.
+  MRT 800 m, school/mall/CC 1 km), adjustable in the UI — they are not
+  official standards.
 - The HDB layer includes **every HDB building** (some are carparks or
   commercial blocks), so a few "blocks" have no residents.
 - Supermarkets are **FairPrice and Sheng Siong only**, per the licence

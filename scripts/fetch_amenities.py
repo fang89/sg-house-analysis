@@ -234,8 +234,6 @@ def main():
     # (category, name-key preference, row filter)
     EXTRAS = {
         "communityclub": (["NAME", "ADDRESSBUILDINGNAME", "DESCRIPTION"], None),
-        "library": (["NAME", "ADDRESSBUILDINGNAME"], None),
-        "park": (["NAME"], None),
         # CHAS: medical clinics only (drop dental / pharmacy licences)
         "clinic": (["HCI_NAME", "NAME"],
                    lambda p: p.get("LICENCE_TYPE", "MC").upper() == "MC"),

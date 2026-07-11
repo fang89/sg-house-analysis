@@ -8,9 +8,7 @@
   "mrt",
   "hawker",
   "clinic",
-  "communityclub",
-  "library",
-  "park"
+  "communityclub"
  ],
  "benchmarks": {
   "super": 500,
@@ -19,9 +17,7 @@
   "mrt": 800,
   "hawker": 500,
   "clinic": 500,
-  "communityclub": 1000,
-  "library": 2000,
-  "park": 800
+  "communityclub": 1000
  },
  "layers": {
   "super": {
@@ -52,13 +48,13 @@
    "pct_within": 68.1
   },
   "mrt": {
-   "count": 597,
+   "count": 186,
    "benchmark_m": 800,
-   "median_m": 505,
-   "p90_m": 1154,
-   "max_m": 3620,
-   "blocks_over": 3289,
-   "pct_within": 75.5
+   "median_m": 550,
+   "p90_m": 1193,
+   "max_m": 3665,
+   "blocks_over": 3752,
+   "pct_within": 72.1
   },
   "hawker": {
    "count": 129,
@@ -86,24 +82,6 @@
    "max_m": 4031,
    "blocks_over": 549,
    "pct_within": 95.9
-  },
-  "library": {
-   "count": 27,
-   "benchmark_m": 2000,
-   "median_m": 1150,
-   "p90_m": 2021,
-   "max_m": 4782,
-   "blocks_over": 1416,
-   "pct_within": 89.5
-  },
-  "park": {
-   "count": 461,
-   "benchmark_m": 800,
-   "median_m": 621,
-   "p90_m": 1180,
-   "max_m": 2214,
-   "blocks_over": 4430,
-   "pct_within": 67.0
   }
  },
  "stations": {

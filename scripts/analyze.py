@@ -33,12 +33,10 @@ LAYERS = [
     ("super",  ["ntuc", "shengsiong"], 500),
     ("school", ["school"],             1000),
     ("mall",   ["mall"],               1000),
-    ("mrt",    ["station_exits"],      800),
+    ("mrt",    ["stations"],           800),   # station (mean of exits)
     ("hawker", ["hawker"],             500),
     ("clinic", ["clinic"],             500),
     ("communityclub", ["communityclub"], 1000),
-    ("library", ["library"],           2000),
-    ("park",   ["park"],               800),
 ]
 
 
