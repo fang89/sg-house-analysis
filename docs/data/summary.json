@@ -88,6 +88,10 @@
   "mrt": 145,
   "lrt": 41
  },
+ "school_tiers": {
+  "tier1": 16,
+  "tier2": 25
+ },
  "rent": {
   "months": 12,
   "island_avg_by_flat_type": {
@@ -100,11 +104,7 @@
   },
   "blocks_with_own_rentals": 8880,
   "pct_blocks_matched": 66.1,
-  "median_shown_avg": 3200,
-  "bands": {
-   "cheap": 0.95,
-   "mid": 1.1,
-   "min_n": 3
-  }
+  "median_shown_avg": 110,
+  "min_n": 3
  }
 }

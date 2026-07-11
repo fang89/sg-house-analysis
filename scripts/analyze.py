@@ -30,8 +30,10 @@ M_PER_DEG_LON = 111320.0 * math.cos(math.radians(1.352))
 # layer -> (amenities.json source keys merged in order, benchmark metres)
 # benchmark = walkability yardstick used for gap coloring (user-adjustable in UI)
 # Priority order (drives the dashboard's display and score weights):
-# rent is scored separately; among map layers MRT > hawker > supermarket
-# > mall > primary school > infant care > community club.
+# rent is scored separately; among map layers MRT > supermarket > primary
+# school > mall > hawker > infant care > community club. Hawker sits low
+# because the open dataset covers NEA-managed hawker centres only — no
+# kopitiams/coffeeshops — so hawker distance under-represents cheap food.
 LAYERS = [
     ("mrt",    ["stations"],           800),   # station (mean of exits)
     ("hawker", ["hawker"],             500),
@@ -42,12 +44,47 @@ LAYERS = [
     ("communityclub", ["communityclub"], 1000),
 ]
 
-# Rent-affordability points: block's average rent vs the island-wide
-# average for the same flat types (so a 3-room block isn't "cheap" just
-# for being small). <=RENT_CHEAP of island average = 2 pts, <=RENT_MID =
-# 1 pt, above = 0. Blocks with <RENT_MIN_N rentals fall back to their
-# town's ratio; no data at all = neutral 1 pt.
-RENT_CHEAP, RENT_MID, RENT_MIN_N = 0.95, 1.10, 3
+# Rent value is continuous now: we emit the block's rent ratio vs the
+# island-wide average for the same flat types (so a 3-room block isn't
+# "cheap" just for being small); the frontend maps ratio -> points on a
+# linear ramp. Blocks with <RENT_MIN_N rentals fall back to their town's
+# ratio; ratio 0 = no data anywhere (frontend scores it neutral).
+RENT_MIN_N = 3
+
+# Primary-school quality tiers (editorial, based on recent P1 balloting
+# demand / oversubscription — Singapore publishes no official ranking).
+# Tier 1 = perennially oversubscribed brand-name schools, tier 2 =
+# consistently popular. The frontend multiplies proximity credit by
+# 1.0 / 0.85 / 0.65 (tier 1 / tier 2 / everyone else).
+SCHOOL_TIER1 = {
+    "AI TONG SCHOOL", "ANGLO-CHINESE SCHOOL (JUNIOR)",
+    "ANGLO-CHINESE SCHOOL (PRIMARY)", "CATHOLIC HIGH SCHOOL",
+    "CHIJ ST. NICHOLAS GIRLS' SCHOOL", "HENRY PARK PRIMARY SCHOOL",
+    "KONG HWA SCHOOL", "METHODIST GIRLS' SCHOOL (PRIMARY)",
+    "NAN HUA PRIMARY SCHOOL", "NANYANG PRIMARY SCHOOL",
+    "PEI HWA PRESBYTERIAN PRIMARY SCHOOL", "RAFFLES GIRLS' PRIMARY SCHOOL",
+    "ROSYTH SCHOOL", "SINGAPORE CHINESE GIRLS' PRIMARY SCHOOL",
+    "ST. HILDA'S PRIMARY SCHOOL", "TAO NAN SCHOOL",
+}
+SCHOOL_TIER2 = {
+    "ANDERSON PRIMARY SCHOOL", "CHONGFU SCHOOL",
+    "FAIRFIELD METHODIST SCHOOL (PRIMARY)", "FRONTIER PRIMARY SCHOOL",
+    "GONGSHANG PRIMARY SCHOOL", "HOLY INNOCENTS' PRIMARY SCHOOL",
+    "KUO CHUAN PRESBYTERIAN PRIMARY SCHOOL", "MAHA BODHI SCHOOL",
+    "MARIS STELLA HIGH SCHOOL", "MEE TOH SCHOOL",
+    "NAN CHIAU PRIMARY SCHOOL", "NGEE ANN PRIMARY SCHOOL",
+    "OASIS PRIMARY SCHOOL", "PEI CHUN PUBLIC SCHOOL", "POI CHING SCHOOL",
+    "PRINCESS ELIZABETH PRIMARY SCHOOL", "RED SWASTIKA SCHOOL",
+    "RIVERSIDE PRIMARY SCHOOL", "RULANG PRIMARY SCHOOL",
+    "SOUTH VIEW PRIMARY SCHOOL", "ST ANDREW'S SCHOOL (JUNIOR)",
+    "ST. JOSEPH'S INSTITUTION JUNIOR", "TANJONG KATONG PRIMARY SCHOOL",
+    "TEMASEK PRIMARY SCHOOL", "WESTWOOD PRIMARY SCHOOL",
+}
+
+
+def school_tier(name):
+    n = " ".join(name.upper().split())
+    return 1 if n in SCHOOL_TIER1 else 2 if n in SCHOOL_TIER2 else 0
 
 # HDB town code -> rental dataset town name
 TOWN_NAME = {
@@ -126,14 +163,13 @@ def load_rents():
     return blocks, towns, ft_avg
 
 
-def rent_points(ratio):
-    return 2 if ratio <= RENT_CHEAP else 1 if ratio <= RENT_MID else 0
-
-
 def sub_of(p):
     c = p.get("cat", "")
     if c in ("ntuc", "shengsiong", "mrt", "lrt"):
         return c
+    if c == "school":
+        t = school_tier(p["name"])
+        return str(t) if t else ""
     return ""
 
 
@@ -148,6 +184,18 @@ def main():
         grids[name] = Grid([(p["lat"], p["lon"]) for p in pts])
         print(f"{name}: {len(pts)} points")
 
+    # nearest tier-1 / tier-2 primary school per block (index into the full
+    # school list) so the frontend can trade proximity against school tier
+    sch_pts = layer_pts["school"]
+    tier_grids, tier_idx = {}, {}
+    for t in (1, 2):
+        idxs = [i for i, p in enumerate(sch_pts)
+                if school_tier(p["name"]) == t]
+        tier_idx[t] = idxs
+        tier_grids[t] = Grid([(sch_pts[i]["lat"], sch_pts[i]["lon"])
+                              for i in idxs])
+        print(f"school tier {t}: {len(idxs)} schools")
+
     rents = load_rents()
     rent_hits = 0
     out_blocks = []
@@ -158,7 +206,8 @@ def main():
             d, i = grids[name].nearest(lat, lon)
             row += [round(d), i]
             dists[name].append(round(d))
-        # rent: [avg S$/mo shown, n block rentals (0 = town average), pts]
+        # rent: [avg S$/mo shown, n block rentals (0 = town average),
+        #        ratio vs island avg for same flat types (0 = no data)]
         if rents:
             rb, rt, _ = rents
             n, s, r = rb.get((norm_street(street), blk.upper()), (0, 0, 0))
@@ -166,16 +215,20 @@ def main():
             if n:
                 rent_hits += 1
             if n >= RENT_MIN_N:
-                row += [round(s / n), n, rent_points(r / n)]
+                row += [round(s / n), n, round(r / n, 3)]
             elif n:      # too few to score on, but real block data to show
                 row += [round(s / n), n,
-                        rent_points(tr / tn) if tn else 1]
+                        round(tr / tn, 3) if tn else 0]
             elif tn:
-                row += [round(ts / tn), 0, rent_points(tr / tn)]
+                row += [round(ts / tn), 0, round(tr / tn, 3)]
             else:
-                row += [0, 0, 1]
+                row += [0, 0, 0]
         else:
-            row += [0, 0, 1]
+            row += [0, 0, 0]
+        # nearest tier-1 and tier-2 school: [d_t1, i_t1, d_t2, i_t2]
+        for t in (1, 2):
+            d, i = tier_grids[t].nearest(lat, lon)
+            row += [round(d), tier_idx[t][i]]
         out_blocks.append(row)
 
     n = len(out_blocks)
@@ -202,6 +255,8 @@ def main():
         "mrt": sum(1 for s in amen.get("stations", []) if s["cat"] == "mrt"),
         "lrt": sum(1 for s in amen.get("stations", []) if s["cat"] == "lrt"),
     }
+    summary["school_tiers"] = {"tier1": len(tier_idx[1]),
+                               "tier2": len(tier_idx[2])}
     if rents:
         _, _, ft_avg = rents
         shown = [b[-3] for b in out_blocks if b[-3] > 0]
@@ -212,8 +267,7 @@ def main():
             "blocks_with_own_rentals": rent_hits,
             "pct_blocks_matched": round(100 * rent_hits / n, 1),
             "median_shown_avg": sorted(shown)[len(shown) // 2] if shown else 0,
-            "bands": {"cheap": RENT_CHEAP, "mid": RENT_MID,
-                      "min_n": RENT_MIN_N},
+            "min_n": RENT_MIN_N,
         }
         print(f"rent: {rent_hits} blocks matched own rentals "
               f"({summary['rent']['pct_blocks_matched']}%)")
