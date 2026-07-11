@@ -1,0 +1,3256 @@
+{
+	"type" : "FeatureCollection",
+	"name" : "COMMUNITYCLUBPASSIONWAVE",
+	"features" : [
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.81975313097747, 1.2759310184005284 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4287,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "98917",
+				"ADDRESSSTREETNAME" : "Telok Blangah Crescent",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "51",
+				"NAME" : "Radin Mas CC",
+				"INC_CRC" : "95CFCA952D918693",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.90231950738371, 1.3851527641357397 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4288,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "544583",
+				"ADDRESSSTREETNAME" : "Rivervale Close",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "1",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "2",
+				"NAME" : "Rivervale CC",
+				"INC_CRC" : "558BE1F5DCD2E327",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.89390610277434, 1.392785585870242 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4289,
+				"ADDRESSBUILDINGNAME" : "Sengkang Community Hub",
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "545025",
+				"ADDRESSSTREETNAME" : "Sengkang Square",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "1",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "2",
+				"NAME" : "Sengkang CC",
+				"INC_CRC" : "EEB6F7D15C2D02C0",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.76465958417046, 1.3815867900890648 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4290,
+				"ADDRESSBUILDINGNAME" : "Opposite Bukit Panjang Plaza",
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "679910",
+				"ADDRESSSTREETNAME" : "Bukit Panjang Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "101",
+				"NAME" : "Senja-Cashew CC",
+				"INC_CRC" : "BE80469373CCAFE0",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.94674214313402, 1.3172919360269562 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4291,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "460151",
+				"ADDRESSSTREETNAME" : "Bedok South Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "151",
+				"NAME" : "Siglap CC",
+				"INC_CRC" : "36AE61E31BF6F733",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.9306234663442, 1.3131589522000973 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4292,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "456441",
+				"ADDRESSSTREETNAME" : "Palm Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "6",
+				"NAME" : "Siglap South CC",
+				"INC_CRC" : "B9FC130027E18FAC",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.72162639956439, 1.3353068008328002 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4293,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "618495",
+				"ADDRESSSTREETNAME" : "Yung Sheng Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Taman Jurong CC",
+				"INC_CRC" : "FF50516FA260BC06",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83626228638991, 1.351253853350256 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4294,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "574339",
+				"ADDRESSSTREETNAME" : "Upper Thomson Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "194",
+				"NAME" : "Thomson CC",
+				"INC_CRC" : "2DA641DED58B5C99",
+				"FMEL_UPD_D" : "20250616115103"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.73706591526356, 1.3399728527888106 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4295,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "609958",
+				"ADDRESSSTREETNAME" : "Boon Lay Way",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "90",
+				"NAME" : "Yuhua CC",
+				"INC_CRC" : "6D45D9D5F4565D0A",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.79224077232294, 1.4274927760291807 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4296,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "739069",
+				"ADDRESSSTREETNAME" : "Woodlands Avenue 1",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "120",
+				"NAME" : "ACE The Place CC",
+				"INC_CRC" : "ED70A438E6987754",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.88954623520497, 1.354658083100117 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4297,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "530110",
+				"ADDRESSSTREETNAME" : "Hougang Avenue 1",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "1048",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "110",
+				"NAME" : "Aljunied CC",
+				"INC_CRC" : "4B64AE42C125FDF7",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8866656847161, 1.3971279177343783 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4298,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "544965",
+				"ADDRESSSTREETNAME" : "Anchorvale Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "59",
+				"NAME" : "Anchorvale CC",
+				"INC_CRC" : "1DD8DC4D35413E55",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8406681303365, 1.366833480766686 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4299,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "569976",
+				"ADDRESSSTREETNAME" : "Ang Mo Kio Avenue 1",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "795",
+				"NAME" : "Ang Mo Kio CC",
+				"INC_CRC" : "DBABED77EC63F88F",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.74754019193895, 1.320799304428602 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4300,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "609335",
+				"ADDRESSSTREETNAME" : "Pandan Gardens",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "150",
+				"NAME" : "Ayer Rajah CC",
+				"INC_CRC" : "F95CD26F8A12A34F",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.93604783880299, 1.3242465984259346 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4301,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "467352",
+				"ADDRESSSTREETNAME" : "New Upper Changi Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "850",
+				"NAME" : "Bedok CC",
+				"INC_CRC" : "FEFA6821BC20ECEA",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85050927568692, 1.3495116183195113 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4302,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "579799",
+				"ADDRESSSTREETNAME" : "Bishan Street 13",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "51",
+				"NAME" : "Bishan CC",
+				"INC_CRC" : "C270CDA2D9222366",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.71138018647879, 1.3483232253267916 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4303,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "649882",
+				"ADDRESSSTREETNAME" : "Boon Lay Place",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "10",
+				"NAME" : "Boon Lay CC",
+				"INC_CRC" : "1CEA67E5231D3D33",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.74680359001859, 1.3504219721532489 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4304,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "650119",
+				"ADDRESSSTREETNAME" : "Bukit Batok West Ave 6",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "256",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "119",
+				"NAME" : "Bukit Batok CC (Temp office)",
+				"INC_CRC" : "F06116784B5AAB7F",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.758195830417, 1.3489873878068073 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4305,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "659841",
+				"ADDRESSSTREETNAME" : "Bukit Batok East Avenue 4",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "23",
+				"NAME" : "Bukit Batok East CC (U/C)",
+				"INC_CRC" : "F5CA1F9CE40C10E1",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.7705588060096, 1.3764507492461155 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4306,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "678295",
+				"ADDRESSSTREETNAME" : "Pending Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "8",
+				"NAME" : "Bukit Panjang CC",
+				"INC_CRC" : "68DCE010E0EBFA73",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.88289417930713, 1.3751489782578707 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4307,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "538776",
+				"ADDRESSSTREETNAME" : "Hougang Avenue 9",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "51",
+				"NAME" : "Ci Yuan CC",
+				"INC_CRC" : "765242D9C9D70206",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.76815368664504, 1.3188151881476347 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4308,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "129880",
+				"ADDRESSSTREETNAME" : "Clementi Avenue 4",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "220",
+				"NAME" : "Clementi CC",
+				"INC_CRC" : "94D669DCFE00C7F3",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.87389097774232, 1.3736001003091243 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4309,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "550535",
+				"ADDRESSSTREETNAME" : "Serangoon North Avenue 4",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "179",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "535",
+				"NAME" : "Hwi Yoh CC",
+				"INC_CRC" : "9AD8CFC81ACCF96D",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.846479315186, 1.2863294048283742 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4310,
+				"ADDRESSBUILDINGNAME" : "Hong Lim Park",
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "58284",
+				"ADDRESSSTREETNAME" : "Upper Pickering Street",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "20",
+				"NAME" : "imPAct@Hong Lim Green",
+				"INC_CRC" : "AD6A8E55E4D43BF4",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8617865723171, 1.30800417111748 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4311,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "208737",
+				"ADDRESSSTREETNAME" : "Jellicoe Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "69",
+				"NAME" : "Jalan Besar CC",
+				"INC_CRC" : "F3B68C022D1C0AE5",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.904168869493, 1.3074572063937617 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4312,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "427633",
+				"ADDRESSSTREETNAME" : "Joo Chiat Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "405",
+				"NAME" : "Joo Chiat CC",
+				"INC_CRC" : "0B8AD1E2DA0FFDB9",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.72534155677674, 1.3505560317035639 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4313,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "649520",
+				"ADDRESSSTREETNAME" : "Jurong West Avenue 1",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "6",
+				"NAME" : "Jurong Green CC",
+				"INC_CRC" : "1C082F25F54CCAA9",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.71815570326673, 1.3483301691729592 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4314,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "649296",
+				"ADDRESSSTREETNAME" : "Jurong West Street 52",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "8",
+				"NAME" : "Jurong Spring CC",
+				"INC_CRC" : "1D22FA6DAB9E32C2",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.92684622465563, 1.3333820696795313 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4315,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "469627",
+				"ADDRESSSTREETNAME" : "Bedok North Street 3",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "670",
+				"NAME" : "Kaki Bukit CC",
+				"INC_CRC" : "F1D8C6EB71C6B7B7",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8623732825009, 1.3178029049764668 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4316,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "339771",
+				"ADDRESSSTREETNAME" : "Boon Keng Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "45",
+				"NAME" : "Kallang CC",
+				"INC_CRC" : "2B16AB13358DE366",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.75190388648127, 1.3811552900306399 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4286,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "688892",
+				"ADDRESSSTREETNAME" : "Teck Whye Avenue",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "35",
+				"NAME" : "Chua Chu Kang CC",
+				"INC_CRC" : "48BFE544075D7591",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.94660268506655, 1.357364787759742 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4317,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "529204",
+				"ADDRESSSTREETNAME" : "Tampines Street 41",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "2",
+				"NAME" : "Tampines North CC",
+				"INC_CRC" : "E8DACC85349431CF",
+				"FMEL_UPD_D" : "20250312010211"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.74472785336711, 1.3949175844705166 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4318,
+				"ADDRESSBUILDINGNAME" : "Located in Yew Tee Community Building",
+				"ADDRESSFLOORNUMBER" : "5",
+				"ADDRESSPOSTALCODE" : "689286",
+				"ADDRESSSTREETNAME" : "Choa Chu Kang Street 52",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "10",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "20",
+				"NAME" : "Limbang CO c/o Yew Tee CC",
+				"INC_CRC" : "2817F4C51E63CE70",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.88682683806329, 1.3092346366642318 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4319,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "390087",
+				"ADDRESSSTREETNAME" : "Jalan Satu",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "87",
+				"NAME" : "Mountbatten CC",
+				"INC_CRC" : "64118BCCCD5C4893",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83609210218492, 1.4280358453225692 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4320,
+				"ADDRESSBUILDINGNAME" : "Located in Northpoint City",
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "768019",
+				"ADDRESSSTREETNAME" : "Northpoint Drive",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "201",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Nee Soon Central CC",
+				"INC_CRC" : "BD725D175505832B",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.88609208263634, 1.3577986050529562 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4321,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "530207",
+				"ADDRESSSTREETNAME" : "Hougang Street 21",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "207",
+				"NAME" : "Paya Lebar Kovan CC",
+				"INC_CRC" : "A9D41AFCFB5CDA42",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.93968359444563, 1.3534961547181348 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4322,
+				"ADDRESSBUILDINGNAME" : "Located in Our Tampines Hub",
+				"ADDRESSFLOORNUMBER" : "4",
+				"ADDRESSPOSTALCODE" : "528523",
+				"ADDRESSSTREETNAME" : "Tampines Walk",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "4",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Tampines Central CC",
+				"INC_CRC" : "C57C470AE6CAD22D",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.70445268530443, 1.3404695641247493 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4323,
+				"ADDRESSBUILDINGNAME" : "Located in Jurong West Community Building",
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "648346",
+				"ADDRESSSTREETNAME" : "Jurong West Central 3",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "1",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "60",
+				"NAME" : "The Frontier CC",
+				"INC_CRC" : "79E1120C7F48032E",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.78921118600064, 1.3120094094936154 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4324,
+				"ADDRESSBUILDINGNAME" : "Located in Ulu Pandan Community Building",
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "279621",
+				"ADDRESSSTREETNAME" : "Ghim Moh Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "170",
+				"NAME" : "Ulu Pandan CC",
+				"INC_CRC" : "F7D39D4FE5CE4337",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.91346411312499, 1.3936062415995636 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4325,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "828815",
+				"ADDRESSSTREETNAME" : "Punggol Field",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "80",
+				"NAME" : "Punggol 21 CC",
+				"INC_CRC" : "276AC22BC5CED61F",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.89181532840827, 1.374378821482798 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4326,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "538808",
+				"ADDRESSSTREETNAME" : "Hougang Avenue 6",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "3",
+				"NAME" : "Punggol CC",
+				"INC_CRC" : "8A19CBF460DA2E10",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.89566486383038, 1.4045159006848433 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4327,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "823259",
+				"ADDRESSSTREETNAME" : "Punggol Field",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "47",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "259C",
+				"NAME" : "Punggol West CC",
+				"INC_CRC" : "2E8A2B0D06E1B32B",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.80130510766038, 1.299150227970495 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4328,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "149732",
+				"ADDRESSSTREETNAME" : "Commonwealth Avenue",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "365",
+				"NAME" : "Queenstown CC",
+				"INC_CRC" : "B647988ADAEB986C",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.80787543560866, 1.2748626566373564 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4329,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "108943",
+				"ADDRESSSTREETNAME" : "Telok Blangah Street 31",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "450",
+				"NAME" : "Telok Blangah CC",
+				"INC_CRC" : "9DD2B6043A3D9692",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.873927617452, 1.3700548624028297 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4330,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "555877",
+				"ADDRESSSTREETNAME" : "Serangoon North Avenue 2",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "10",
+				"NAME" : "The Serangoon CC",
+				"INC_CRC" : "7D2FFBBBA17EB247",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83188271457482, 1.2834525171488171 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4331,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "169715",
+				"ADDRESSSTREETNAME" : "Eu Chin Street",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "67A",
+				"NAME" : "Tiong Bahru CC",
+				"INC_CRC" : "6772C5E864A07E27",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85020454592244, 1.3349345170945592 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4332,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "319194",
+				"ADDRESSSTREETNAME" : "Toa Payoh Central",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "93",
+				"NAME" : "Toa Payoh Central CC",
+				"INC_CRC" : "1829D3323F5996D1",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85470024902969, 1.336274892063962 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4333,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "319380",
+				"ADDRESSSTREETNAME" : "Lorong 6 Toa Payoh",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "160",
+				"NAME" : "Toa Payoh East CC",
+				"INC_CRC" : "5F159FB0CFE3F987",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85937897981313, 1.3348903704664343 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4334,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "319258",
+				"ADDRESSSTREETNAME" : "Lorong 8 Toa Payoh",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1999",
+				"NAME" : "Toa Payoh South CC",
+				"INC_CRC" : "178CA4A317A4936B",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.74472785336711, 1.3949175844705166 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4335,
+				"ADDRESSBUILDINGNAME" : "Located in Yew Tee Community Building",
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "689286",
+				"ADDRESSSTREETNAME" : "Choa Chu Kang Street 52",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "20",
+				"NAME" : "Yew Tee CC",
+				"INC_CRC" : "2817F4C564C3DD52",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.93274134203767, 1.3413981466668703 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4336,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "479311",
+				"ADDRESSSTREETNAME" : "Bedok Reservoir Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "PAssionWave",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "911",
+				"NAME" : "PAssion WaVe @ Bedok Reservoir (Sea Sports Club)",
+				"INC_CRC" : "ABCD6DC45A8FD20E",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.95222299303326, 1.3117279914425672 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4337,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "468961",
+				"ADDRESSSTREETNAME" : "East Coast Parkway",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "PAssionWave",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1390",
+				"NAME" : "PAssion WaVe @ East Coast (Sea Sports Club)",
+				"INC_CRC" : "F19BA33D50F45536",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.72729947121485, 1.3393595538818395 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4338,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "618662",
+				"ADDRESSSTREETNAME" : "Yuan Ching Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "PAssionWave",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "100",
+				"NAME" : "PAssion WaVe @ Jurong Lake Gardens (Sea Sports Club)",
+				"INC_CRC" : "FF0B51F5CAFC4DCC",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.86677548471633, 1.2949932783441664 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4339,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "437440",
+				"ADDRESSSTREETNAME" : "Rhu Cross",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "PAssionWave",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "11",
+				"NAME" : "PAssion WaVe @ Marina Bay (Sea Sports Club)",
+				"INC_CRC" : "549443D17367FF55",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.94344620089569, 1.3849470269212816 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4340,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "519926",
+				"ADDRESSSTREETNAME" : "Elias Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "PAssionWave",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "125",
+				"NAME" : "PAssion WaVe @ Pasir Ris (Sea Sports Club)",
+				"INC_CRC" : "3A5DB08F68F5EC76",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84365029983671, 1.4590379403414018 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4341,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "759058",
+				"ADDRESSSTREETNAME" : "Jalan Mempurong",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "PAssionWave",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "60",
+				"NAME" : "PAssion WaVe @ Sembawang (Sea Sport Club)",
+				"INC_CRC" : "C584161FE1BB70DB",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.7648320774733, 1.3026455597907736 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4342,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "129605",
+				"ADDRESSSTREETNAME" : "Clementi West Street 2",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "2",
+				"NAME" : "West Coast CC",
+				"INC_CRC" : "5DF7527297FB09E6",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85697916964102, 1.3246395940832896 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4343,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "327737",
+				"ADDRESSSTREETNAME" : "Whampoa Drive",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "300",
+				"NAME" : "Whampoa CC",
+				"INC_CRC" : "66947A1ACF032805",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.78500686614792, 1.4317710217705208 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4344,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "730353",
+				"ADDRESSSTREETNAME" : "Woodlands Ave 1",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "753",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "353",
+				"NAME" : "Woodgrove CC",
+				"INC_CRC" : "D36C8B9CC00C4A8D",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.90960293381053, 1.3044574337410086 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4345,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "440067",
+				"ADDRESSSTREETNAME" : "Marine Drive",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "222",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "67",
+				"NAME" : "Marine Parade CC (Temp Office)",
+				"INC_CRC" : "FCAC1FE206AA3F68",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.77361518476744, 1.440656776542851 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4346,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "739980",
+				"ADDRESSSTREETNAME" : "Admiralty Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "100",
+				"NAME" : "Marsiling CC",
+				"INC_CRC" : "27CDFAB9C88C98E1",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84128617420045, 1.3621375679657564 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4347,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "575738",
+				"ADDRESSSTREETNAME" : "Sin Ming Avenue",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "191",
+				"NAME" : "Marymount CC",
+				"INC_CRC" : "37C3F3456C019522",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.69232023191732, 1.3423640283979046 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4348,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "649040",
+				"ADDRESSSTREETNAME" : "Jurong West Street 91",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "60",
+				"NAME" : "Nanyang CC",
+				"INC_CRC" : "B6F5488A68266D3B",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83848808354468, 1.4310208721248876 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4349,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "768893",
+				"ADDRESSSTREETNAME" : "Yishun Avenue 9",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Nee Soon East CC",
+				"INC_CRC" : "AC342EBB1AE9EC2C",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.9498276372685, 1.370631435418661 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4350,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "510536",
+				"ADDRESSSTREETNAME" : "Pasir Ris Drive 1",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "286",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "536",
+				"NAME" : "Pasir Ris Central CC",
+				"INC_CRC" : "9A6639828304D995",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.9424764054956, 1.3784294369924566 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4351,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "519498",
+				"ADDRESSSTREETNAME" : "Pasir Ris Drive 3",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "93",
+				"NAME" : "Pasir Ris Elias CC",
+				"INC_CRC" : "E33897E8DE98ACF4",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.85137384688184, 1.3130586484372833 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4352,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "219458",
+				"ADDRESSSTREETNAME" : "Gloucester Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "21",
+				"NAME" : "Pek Kio CC",
+				"INC_CRC" : "E185B3EF2A01A743",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.86703683933985, 1.3325359115428537 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4353,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "358361",
+				"ADDRESSSTREETNAME" : "Potong Pasir Avenue 2",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "6",
+				"NAME" : "Potong Pasir CC",
+				"INC_CRC" : "CACBDF1955DCFCC3",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.73450005029252, 1.35675241769837 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4354,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "690119",
+				"ADDRESSSTREETNAME" : "Plantation Crescent",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "119",
+				"NAME" : "Tengah CC",
+				"INC_CRC" : "CA01EA883EBD7DB1",
+				"FMEL_UPD_D" : "20250312010211"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.86359785826838, 1.3027952183932705 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4355,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "199581",
+				"ADDRESSSTREETNAME" : "Beach Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "385",
+				"NAME" : "Kampong Glam CC",
+				"INC_CRC" : "BB761485F7451045",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.9007501269771, 1.317846431301836 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4356,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "409075",
+				"ADDRESSSTREETNAME" : "Jalan Ubi",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "10",
+				"NAME" : "Kampong Ubi CC",
+				"INC_CRC" : "DC9F1FCB9B561458",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83476623270364, 1.4151868533374214 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4357,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "768455",
+				"ADDRESSSTREETNAME" : "Yishun Street 81",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "30",
+				"NAME" : "Nee Soon South CC",
+				"INC_CRC" : "4A53A5978A31CCA7",
+				"FMEL_UPD_D" : "20241028095104"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.9475498139767, 1.3458498428102452 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4358,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "529453",
+				"ADDRESSSTREETNAME" : "Tampines Street 11",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "5",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "13",
+				"NAME" : "Tampines Changkat CC",
+				"INC_CRC" : "BF6B1251D3033687",
+				"FMEL_UPD_D" : "20241028095104"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.91339607671591, 1.3324260474920344 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4359,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "479312",
+				"ADDRESSSTREETNAME" : "Bedok Reservoir Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "70A",
+				"NAME" : "Eunos CC (Temp Office)",
+				"INC_CRC" : "B372A50C8339AC30",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.9366136187988, 1.3307076180555428 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4360,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "469644",
+				"ADDRESSSTREETNAME" : "Bedok North Street 2",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "20",
+				"NAME" : "Fengshan CC",
+				"INC_CRC" : "29B402AC1323A00C",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.877000455369, 1.3917255158703137 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4361,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "797650",
+				"ADDRESSSTREETNAME" : "Sengkang West Avenue",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "21",
+				"NAME" : "Fernvale CC",
+				"INC_CRC" : "BAF53D5ABF37DDC7",
+				"FMEL_UPD_D" : "20250721144318"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.95918238440893, 1.368800572768456 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4362,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "519457",
+				"ADDRESSSTREETNAME" : "Pasir Ris Drive 4",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Pasir Ris East CC",
+				"INC_CRC" : "C59683571CF9588C",
+				"FMEL_UPD_D" : "20250721144318"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8414281240354, 1.3815172715777488 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4363,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "569163",
+				"ADDRESSSTREETNAME" : "Ang Mo Kio Street 61",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "50",
+				"NAME" : "Yio Chu Kang CC",
+				"INC_CRC" : "2CBC3815BBD37D29",
+				"FMEL_UPD_D" : "20250721144318"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8723878551344, 1.3156911078441034 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4364,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "387311",
+				"ADDRESSSTREETNAME" : "Upper Boon Keng Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1205",
+				"NAME" : "Geylang West CC",
+				"INC_CRC" : "866A2FF9BCFCDEE2",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8233153220739, 1.2860101566046183 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4365,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "159682",
+				"ADDRESSSTREETNAME" : "Bukit Merah View",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "500",
+				"NAME" : "Henderson CC",
+				"INC_CRC" : "4BB2B31C01C6085E",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.76426638975674, 1.3619672440242196 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4366,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "667970",
+				"ADDRESSSTREETNAME" : "Hillview Rise",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Hillview CC",
+				"INC_CRC" : "4D37843DFF88A046",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.74945684148685, 1.3590588883950487 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4367,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "659440",
+				"ADDRESSSTREETNAME" : "Bukit Batok Street 31",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "30",
+				"NAME" : "Hong Kah North CC",
+				"INC_CRC" : "44A33957E9C744CA",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.89262224018398, 1.3647574323302525 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4368,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "538840",
+				"ADDRESSSTREETNAME" : "Hougang Avenue 3",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "35",
+				"NAME" : "Hougang CC",
+				"INC_CRC" : "B1DBF138348D55F7",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.88474893135849, 1.3005911742372616 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4369,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "438178",
+				"ADDRESSSTREETNAME" : "Kampong Arang Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "51",
+				"NAME" : "Katong CC",
+				"INC_CRC" : "FEF33569B0901C26",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.74492381272233, 1.3840651592654132 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4370,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "689687",
+				"ADDRESSSTREETNAME" : "Choa Chu Kang Loop",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "1",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "2",
+				"NAME" : "Keat Hong CC",
+				"INC_CRC" : "238C3F298A0A22D7",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83761242449003, 1.3730074990627377 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4371,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "569897",
+				"ADDRESSSTREETNAME" : "Ang Mo Kio Avenue 4",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "216",
+				"NAME" : "Kebun Baru CC",
+				"INC_CRC" : "2752FB78E0A59AE3",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83070644581035, 1.2896826597603268 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4372,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "169640",
+				"ADDRESSSTREETNAME" : "Havelock Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "570",
+				"NAME" : "Kim Seng CC",
+				"INC_CRC" : "36C68237DBC4DFEA",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.86969309062691, 1.324154318199165 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4373,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "339631",
+				"ADDRESSSTREETNAME" : "Geylang Bahru Lane",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Kolam Ayer CC",
+				"INC_CRC" : "0E1F139BEE5A5A44",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.7832716667167, 1.302529944661997 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4374,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "130001",
+				"ADDRESSSTREETNAME" : "Dover Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "300",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Dover CC",
+				"INC_CRC" : "BF90A626577A73AD",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84301285361794, 1.28119257621546 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4375,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "88995",
+				"ADDRESSSTREETNAME" : "Kreta Ayer Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "28A",
+				"NAME" : "Kreta Ayer CC",
+				"INC_CRC" : "A3B9130EFFDE8299",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.81444834815959, 1.2897871189165284 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4376,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "159049",
+				"ADDRESSSTREETNAME" : "Lengkok Bahru",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "400",
+				"NAME" : "Leng Kee CC",
+				"INC_CRC" : "D82C68DC562E5218",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.88448119341498, 1.3235370882947983 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4377,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "379131",
+				"ADDRESSSTREETNAME" : "Paya Lebar Way",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "400",
+				"NAME" : "MacPherson CC",
+				"INC_CRC" : "9455CC4AFE3CD0D3",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.87167001564892, 1.3387306540844819 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4378,
+				"ADDRESSBUILDINGNAME" : "Located in The Woodleigh Mall",
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "367803",
+				"ADDRESSSTREETNAME" : "Bidadari Park Drive",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "60",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "11",
+				"NAME" : "Bidadari CC",
+				"INC_CRC" : "F944ECDC31D7296A",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.89229581728699, 1.3831519264566876 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4379,
+				"ADDRESSBUILDINGNAME" : "Located in Sengkang Grand Mall",
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "544692",
+				"ADDRESSSTREETNAME" : "Compassvale Bow",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "25",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "70",
+				"NAME" : "Buangkok CC",
+				"INC_CRC" : "408DE0F8FD372942",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.877000455369, 1.3917255158703137 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4380,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "797650",
+				"ADDRESSSTREETNAME" : "Sengkang West Ave",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "21",
+				"NAME" : "Buangkok-Fernvale South CC",
+				"INC_CRC" : "BAF53D5A2F6FF52A",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.95918238440893, 1.368800572768456 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4381,
+				"ADDRESSBUILDINGNAME" : "Located in Pasir Ris East Community Building",
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "519457",
+				"ADDRESSSTREETNAME" : "Pasir Ris Dr 4",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "08",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Changi CC",
+				"INC_CRC" : "C596835708F0F10B",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.89655502524346, 1.316528176264 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4382,
+				"ADDRESSBUILDINGNAME" : "Located in Wisma Geylang Serai",
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "408528",
+				"ADDRESSSTREETNAME" : "Engku Aman Turn",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "1",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Geylang Serai CC",
+				"INC_CRC" : "E78602A02AF8590F",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.93162062157725, 1.3269849884844858 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4383,
+				"ADDRESSBUILDINGNAME" : "Located in Heartbeat @Bedok",
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "469662",
+				"ADDRESSSTREETNAME" : "Bedok North Street 1",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "11",
+				"NAME" : "Kampong Chai Chee CC",
+				"INC_CRC" : "E6D5FB69544C9CBD",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.9106975308281, 1.3245807568761185 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4384,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "410109",
+				"ADDRESSSTREETNAME" : "Lengkong Tiga",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "273",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "109",
+				"NAME" : "Kampong Kembangan CC (Temp Office)",
+				"INC_CRC" : "C2DE0517E593CBCE",
+				"FMEL_UPD_D" : "20250923214906"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.74592979081598, 1.3737308390904484 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4385,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "681811",
+				"ADDRESSSTREETNAME" : "Choa Chu Kang Avenue 7",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "657",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "811A",
+				"NAME" : "Brickland-Tenggah CC",
+				"INC_CRC" : "84F6543B4A3E3F87",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84937502946819, 1.371915227277162 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4386,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "569205",
+				"ADDRESSSTREETNAME" : "Ang Mo Kio Street 53",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "6",
+				"NAME" : "Cheng San CC",
+				"INC_CRC" : "DE0320C63B751983",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.91514355252042, 1.332552777885436 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4387,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "479220",
+				"ADDRESSSTREETNAME" : "Bedok Reservoir Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "180",
+				"NAME" : "Eunos CC",
+				"INC_CRC" : "E824C5B5ADA90F29",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.69978225127765, 1.349425454293563 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4388,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "640760",
+				"ADDRESSSTREETNAME" : "Jurong West Street 74",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "08",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "760",
+				"NAME" : "Gek Poh Ville CC (Temp office)",
+				"INC_CRC" : "17A642FE47B4BB7A",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.69872626135691, 1.3486898193787666 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4389,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "649149",
+				"ADDRESSSTREETNAME" : "Jurong West Street 74",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Gek Poh Ville CC (U/C)",
+				"INC_CRC" : "664E822932AA152D",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.81947373914728, 1.4450441268303615 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4390,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "757632",
+				"ADDRESSSTREETNAME" : "Sembawang Crescent",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "2",
+				"NAME" : "Naval Base CO @ Naval Base CC",
+				"INC_CRC" : "E83B5D1AA96F1423",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.9050342171961, 1.4085215780925273 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4391,
+				"ADDRESSBUILDINGNAME" : "Located in One Punggol",
+				"ADDRESSFLOORNUMBER" : "4",
+				"ADDRESSPOSTALCODE" : "828629",
+				"ADDRESSSTREETNAME" : "Punggol Drive",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "5",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Punggol Coast CO c/o One Punggol CC",
+				"INC_CRC" : "A4402313A8AE0123",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.9050342171961, 1.4085215780925273 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4392,
+				"ADDRESSBUILDINGNAME" : "Located in One Punggol",
+				"ADDRESSFLOORNUMBER" : "4",
+				"ADDRESSPOSTALCODE" : "828629",
+				"ADDRESSSTREETNAME" : "Punggol Drive",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "5",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Punggol North CO c/o One Punggol CC",
+				"INC_CRC" : "A44023133894651E",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.82999319245526, 1.4445734311265837 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4393,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "752117",
+				"ADDRESSSTREETNAME" : "Canberra Crescent",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "370",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "117B",
+				"NAME" : "Sembawang Central CO @ Sembawang CC (Temp Office)",
+				"INC_CRC" : "6C928678F97961E7",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.82880679764213, 1.4517009597373067 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4394,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "758528",
+				"ADDRESSSTREETNAME" : "Sembawang Road 21KM",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "2125",
+				"NAME" : "Sembawang Central CO @ Sembawang CC (U/C)",
+				"INC_CRC" : "769E7DD87E8B94D5",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.93968359444563, 1.3534961547181348 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4395,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "4",
+				"ADDRESSPOSTALCODE" : "528523",
+				"ADDRESSSTREETNAME" : "Tampines Walk",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "4",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Tampines Boulevard c/o Tampines Central CC",
+				"INC_CRC" : "C57C470A53BA037E",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.78823540481689, 1.4397303386203621 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4396,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "738526",
+				"ADDRESSSTREETNAME" : "Woodlands Street 81",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Woodlands CC",
+				"INC_CRC" : "7ADDE12E2BF58540",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.77485012918247, 1.4295866024388828 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4397,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "738581",
+				"ADDRESSSTREETNAME" : "Woodlands Street 31",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Woodlands CO @Fuchun CC",
+				"INC_CRC" : "7B6B27800FAF2E9E",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.77152084638222, 1.3868068291970965 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4398,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "677738",
+				"ADDRESSSTREETNAME" : "Segar Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Zhenghua CC",
+				"INC_CRC" : "EF0DB11851BFCD36",
+				"FMEL_UPD_D" : "20260408150524"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84483087582645, 1.3353827124598994 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4399,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "319642",
+				"ADDRESSSTREETNAME" : "Lorong 2 Toa Payoh",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "200",
+				"NAME" : "Toa Payoh West CC",
+				"INC_CRC" : "5F63811602C77455",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.9546204616287, 1.3533568259343283 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4400,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "529341",
+				"ADDRESSSTREETNAME" : "Tampines Street 23",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "10",
+				"NAME" : "Tampines East CC",
+				"INC_CRC" : "C7C8B4E1B595EB92",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.93563340889486, 1.3487507639882188 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4401,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "529705",
+				"ADDRESSSTREETNAME" : "Tampines Avenue 3",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "5",
+				"NAME" : "Tampines West CC",
+				"INC_CRC" : "AB698123DBB348BF",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.82687718346561, 1.3233844681800055 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4402,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "297829",
+				"ADDRESSSTREETNAME" : "Whitley Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "245",
+				"NAME" : "Tanglin CC",
+				"INC_CRC" : "F48761B1C1E0B317",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.84158421003391, 1.276166980026334 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4403,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "89774",
+				"ADDRESSSTREETNAME" : "Cantonment Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "101",
+				"NAME" : "Tanjong Pagar CC",
+				"INC_CRC" : "F73A2A5EE1C3A69A",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8535360766646, 1.3630886791797372 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4404,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "569734",
+				"ADDRESSSTREETNAME" : "Ang Mo Kio Avenue 10",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "861",
+				"NAME" : "Teck Ghee CC",
+				"INC_CRC" : "B1746F6A985A50E0",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.80261098428336, 1.4390416069011442 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4405,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "738991",
+				"ADDRESSSTREETNAME" : "Woodlands Avenue 6",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "31",
+				"NAME" : "Woodlands Galaxy CC",
+				"INC_CRC" : "DB9E72A746460149",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.87036787570035, 1.3516122455273327 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4406,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "556129",
+				"ADDRESSSTREETNAME" : "Serangoon Avenue 2",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "50",
+				"NAME" : "Braddell Heights CC",
+				"INC_CRC" : "3228BC28B090B3C4",
+				"FMEL_UPD_D" : "20250616115103"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.74754947070261, 1.3498976524656536 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4407,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "659959",
+				"ADDRESSSTREETNAME" : "Bukit Batok Central",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "21",
+				"NAME" : "Bukit Batok CC (U/C)",
+				"INC_CRC" : "2C07D9E0F4CFD5F6",
+				"FMEL_UPD_D" : "20250616115103"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.75902183737942, 1.3492423371740303 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4408,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "650268",
+				"ADDRESSSTREETNAME" : "Bukit Batok East Avenue 4",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "256",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "268",
+				"NAME" : "Bukit Batok East CC (Temp office)",
+				"INC_CRC" : "0A385A3A933D1EC9",
+				"FMEL_UPD_D" : "20250616115103"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.77157633388418, 1.3405343538797614 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4409,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "596569",
+				"ADDRESSSTREETNAME" : "Toh Yi Drive",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "20",
+				"NAME" : "Bukit Timah CC",
+				"INC_CRC" : "971F8DEF1B26DD74",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.79261941701083, 1.309258714606109 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4410,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "270036",
+				"ADDRESSSTREETNAME" : "Holland Drive",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "1",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "36",
+				"NAME" : "Buona Vista CC",
+				"INC_CRC" : "99D530F90B2C4D42",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.8463992179587, 1.4250356685471195 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4411,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "760413",
+				"ADDRESSSTREETNAME" : "Yishun Ring Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "1187",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "413",
+				"NAME" : "Nee Soon Link CC",
+				"INC_CRC" : "AD3A67581F71F380",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83886488009581, 1.3104343381510988 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4412,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "229944",
+				"ADDRESSSTREETNAME" : "Anthony Road",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "1",
+				"NAME" : "Cairnhill CC",
+				"INC_CRC" : "99CE8EE20E31F8F3",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.81947373914728, 1.4450441268303615 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4413,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "757632",
+				"ADDRESSSTREETNAME" : "Sembawang Crescent",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "2",
+				"NAME" : "Canberra CC",
+				"INC_CRC" : "E83B5D1AB0B1AD2A",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.95511094811947, 1.34493553057398 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4414,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : null,
+				"ADDRESSPOSTALCODE" : "529915",
+				"ADDRESSSTREETNAME" : "Simei Street 2",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : null,
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "10",
+				"NAME" : "Changi Simei CC",
+				"INC_CRC" : "1AB4A5D9F162B910",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		},
+		{
+			"type" : "Feature",
+			"geometry" : {
+				"type" : "Point",
+				"coordinates" : [ 103.83001188853567, 1.4335090534702293 ]
+			},
+			"properties" : {
+				"OBJECTID" : 4415,
+				"ADDRESSBUILDINGNAME" : null,
+				"ADDRESSFLOORNUMBER" : "1",
+				"ADDRESSPOSTALCODE" : "760126",
+				"ADDRESSSTREETNAME" : "Yishun Street 11",
+				"ADDRESSTYPE" : null,
+				"ADDRESSUNITNUMBER" : "427",
+				"DESCRIPTION" : "CC",
+				"HYPERLINK" : "https://www.onepa.gov.sg/cc",
+				"LANDXADDRESSPOINT" : null,
+				"LANDYADDRESSPOINT" : null,
+				"PHOTOURL" : null,
+				"ADDRESSBLOCKHOUSENUMBER" : "126",
+				"NAME" : "Chong Pang CC (Temp Office)",
+				"INC_CRC" : "E82CF34835F3498D",
+				"FMEL_UPD_D" : "20240417181750"
+			}
+		}
+	]
+}
