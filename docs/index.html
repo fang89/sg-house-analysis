@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Which HDB block is the best in Singapore? — scored /10</title>
-<meta name="description" content="Every HDB block in Singapore scored out of 10 on rent value and walkable amenities: MRT, hawker centres, supermarkets, malls, schools, infant care.">
+<meta name="description" content="Every HDB block in Singapore scored out of 10 on rent level (the market's verdict) and walkable amenities: MRT, supermarkets, schools, malls, hawker centres, infant care.">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
       integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 <style>
@@ -160,8 +160,9 @@ td.bad{color:var(--st-critical);font-weight:600}
   <h1>Which HDB block is the best in Singapore?</h1>
   <button id="themeBtn" aria-label="Toggle dark mode">◐ theme</button>
 </header>
-<p class="sub">All ~13,400 HDB blocks, <b>scored out of 10</b> on what daily life there costs
-and how walkable it is: <b>rent value</b> weighs most (3.0), then <b>MRT/LRT</b> (2.0),
+<p class="sub">All ~13,400 HDB blocks, <b>scored out of 10</b> on how desirable the market judges
+them and how walkable they are: <b>rent level</b> weighs most (3.0 — higher rent = the market's
+vote for a better block), then <b>MRT/LRT</b> (2.0),
 <b>FairPrice / Sheng Siong supermarket</b> (1.4), <b>primary school</b> (1.2, popular schools
 count extra), <b>mall</b> (1.0), <b>hawker centre</b> (0.7), <b>infant care</b> (0.5) and
 <b>community club</b> (0.2). Closer pays more: an MRT at 100&#8202;m earns more than one at 300&#8202;m.
@@ -219,10 +220,10 @@ scorecard — every distance, average rent, and what else is nearby. Distances a
   <h2>Method, sources & caveats</h2>
   <ul>
     <li><b>Distances are straight-line</b> from the HDB building centroid — an easy, consistent yardstick, but real walks are longer (roads, blocks, canals). MRT/LRT distance is to the <i>station</i> (the mean position of its exits).</li>
-    <li><b>The score (0–10) is a weighted sum of eight components</b>, ordered by how much they shape daily life: <b>rent value 3.0</b> &gt; <b>MRT/LRT 2.0</b> &gt; <b>supermarket 1.4</b> &gt; <b>primary school 1.2</b> &gt; <b>mall 1.0</b> &gt; <b>hawker centre 0.7</b> &gt; <b>infant care 0.5</b> &gt; <b>community club 0.2</b> (weights sum to 10; the ordering is editorial). Having several of one type nearby doesn't add points — it shows in the block panel instead.</li>
+    <li><b>The score (0–10) is a weighted sum of eight components</b>, ordered by how much they shape daily life: <b>rent level 3.0</b> &gt; <b>MRT/LRT 2.0</b> &gt; <b>supermarket 1.4</b> &gt; <b>primary school 1.2</b> &gt; <b>mall 1.0</b> &gt; <b>hawker centre 0.7</b> &gt; <b>infant care 0.5</b> &gt; <b>community club 0.2</b> (weights sum to 10; the ordering is editorial). Having several of one type nearby doesn't add points — it shows in the block panel instead.</li>
     <li><b>Closer pays more (proximity gradient)</b>: each amenity pays its <b>full weight within 100&#8202;m</b> of the block, sliding down to <b>half at its benchmark distance</b> and <b>zero at 2× the benchmark</b> (linear in between) — so an MRT 100&#8202;m away is worth visibly more than one 700&#8202;m away, even though both are "within benchmark". Benchmarks: supermarket &amp; hawker 500&#8202;m, MRT &amp; infant care 800&#8202;m, school / mall / CC 1&#8202;km.</li>
     <li><b>Primary schools are weighted by demand, not just distance</b>: there is no official ranking, so schools are tiered editorially by recent P1 balloting demand — 16 <b>top-tier</b> schools (perennially oversubscribed: Nanyang, Rosyth, Ai Tong, Catholic High, CHIJ St. Nicholas…) count ×1.0, 25 <b>popular</b> schools ×0.85, everyone else ×0.65. A block scores on its <b>best combination of proximity × tier</b>, so a top school at 800&#8202;m can beat an average one at 300&#8202;m; the panel names the school being scored.</li>
-    <li><b>Rent value (the heaviest component, 3.0 pts)</b>: a block's rentals over the last 12 months are compared with the island-wide average <i>for the same flat types</i> (so a 3-room block isn't "cheap" just for being small). Points slide continuously: ratio ≤&#8202;0.85 of the island average → full 3.0&#8202;pts, fading linearly to 0 at ≥&#8202;1.25 (so 0.95 ≈ 2.3&#8202;pts, 1.05 ≈ 1.5&#8202;pts). Blocks with fewer than 3 rentals use their town's ratio (their own average is still displayed, marked accordingly); blocks with no data anywhere score a neutral half. Rents are HDB rental-approval declarations (<a href="https://data.gov.sg/datasets/d_c9f57187485a850908655db0e8cfe651/view">data.gov.sg</a>) — owner-declared, whole-flat rentals, indicative only. ~66% of blocks have their own transactions; the panel shows the average and the count.</li>
+    <li><b>Rent level (the heaviest component, 3.0 pts)</b>: rent is treated as <b>the market's own verdict on a block</b> — people pay more to live in better places, so higher rent scores higher. A block's rentals over the last 12 months are compared with the island-wide average <i>for the same flat types</i> (so a 5-room block isn't "desirable" just for being big). Points slide continuously: ratio ≥&#8202;1.25 of the island average → full 3.0&#8202;pts, fading linearly to 0 at ≤&#8202;0.75 (so 1.10 ≈ 2.1&#8202;pts, 0.95 ≈ 1.2&#8202;pts). Blocks with fewer than 3 rentals use their town's ratio (their own average is still displayed, marked accordingly); blocks with no data anywhere score a neutral half. Rents are HDB rental-approval declarations (<a href="https://data.gov.sg/datasets/d_c9f57187485a850908655db0e8cfe651/view">data.gov.sg</a>) — owner-declared, whole-flat rentals, indicative only. ~66% of blocks have their own transactions; the panel shows the average and the count.</li>
     <li><b>Hawker weight is deliberately low (0.7)</b>: the open dataset covers the ~120 NEA-managed hawker centres only. Kopitiams, coffeeshops and food courts — where much of Singapore actually eats cheaply — appear in no public register, so hawker distance under-represents real food access and is down-weighted rather than allowed to distort the score.</li>
     <li><b>"Best block" claims come with caveats</b>: the ranking table keeps only blocks with a known dwelling-unit count (excludes carparks/commercial HDB buildings), straight-line distance flatters blocks near barriers (canals, expressways), and the weights are one editorial view of what matters — a family optimising for schools would weigh differently.</li>
     <li><b>Benchmarks are editorial yardsticks</b> (adjustable above for the charts), not official standards.</li>
@@ -258,7 +259,8 @@ const LAYERS = {
   communityclub:{label:'Community club', short:'community club', cssVar:'--c-cc', shape:'circle'},
 };
 // Which HDB block is the best in Singapore, out of 10?
-// Weighted score: rent value matters most, then each amenity by priority.
+// Weighted score: rent level (market desirability) matters most, then
+// each amenity by priority.
 // Hawker is deliberately light: the dataset is NEA hawker centres only
 // (no kopitiams/coffeeshops), so it under-represents cheap food access.
 // Weights sum to 10.
@@ -292,11 +294,12 @@ let RENT_COL = 0;   // set at boot: [avg S$/mo, n block rentals, ratio]
 const rentAvg = b => b[RENT_COL];
 const rentN   = b => b[RENT_COL + 1];
 // ratio vs island average for the same flat types; 0 = no data (neutral).
-// Continuous: full credit at <=0.85x, fading to zero at >=1.25x.
+// Rent is the market's verdict on a block: high rent = desirable.
+// Continuous: zero credit at <=0.75x, full at >=1.25x.
 const rentRatio = b => b[RENT_COL + 2];
 const rentFactor = b => {
   const r = rentRatio(b);
-  return r ? Math.max(0, Math.min(1, (1.25 - r) / 0.40)) : 0.5;
+  return r ? Math.max(0, Math.min(1, (r - 0.75) / 0.50)) : 0.5;
 };
 const TOWN = {AMK:'Ang Mo Kio',BB:'Bukit Batok',BD:'Bedok',BH:'Bishan',BM:'Bukit Merah',
   BP:'Bukit Panjang',BT:'Bukit Timah',CCK:'Choa Chu Kang',CL:'Clementi',CT:'Central Area',
@@ -559,7 +562,7 @@ function renderFocusPanel(b, nearestMarkers){
     <div class="meta">${townOf(b)}${b[0] ? ' · S(' + b[0] + ')' : ''}${b[6] ? ' · ' + fmt(b[6]) + ' units' : ''}
       · score <b>${fmtScore(score(b))}/10</b></div>
     ${rentRow}${rows}
-    <div class="hint">Nearest of each amenity (dashed lines); smaller markers = everything within 1 km. ▲ beyond its benchmark. Score /10 is weighted: rent value 3.0, MRT 2.0, supermarket 1.4, school 1.2 (× demand tier), mall 1.0, hawker 0.7, infant care 0.5, CC 0.2 — closer pays more: full weight within 100 m, half at the benchmark, zero at 2×. Click a row to see it, another block to switch, or Esc to exit.</div>`;
+    <div class="hint">Nearest of each amenity (dashed lines); smaller markers = everything within 1 km. ▲ beyond its benchmark. Score /10 is weighted: rent level 3.0 (higher rent = more desirable), MRT 2.0, supermarket 1.4, school 1.2 (× demand tier), mall 1.0, hawker 0.7, infant care 0.5, CC 0.2 — closer pays more: full weight within 100 m, half at the benchmark, zero at 2×. Click a row to see it, another block to switch, or Esc to exit.</div>`;
   p.style.display = 'block';
   p.querySelector('.close').onclick = clearFocus;
   p.querySelectorAll('.row').forEach(r => {
@@ -609,7 +612,7 @@ function drawLegend(){
     return `<span><span class="sw" style="${style}"></span>${LAYERS[l].label}</span>`;
   }).join('');
   if (S.mode === 'score'){
-    el.innerHTML = `<span><span class="ramp score"></span>block: score 0 → 10, weighted — rent value 3.0, MRT 2.0, supermarket 1.4, school 1.2 × demand tier, mall 1.0, hawker 0.7, infant care 0.5, CC 0.2; closer pays more (see Method below); big green dots score 9+</span>` + marks;
+    el.innerHTML = `<span><span class="ramp score"></span>block: score 0 → 10, weighted — rent level 3.0 (higher = more desirable), MRT 2.0, supermarket 1.4, school 1.2 × demand tier, mall 1.0, hawker 0.7, infant care 0.5, CC 0.2; closer pays more (see Method below); big green dots score 9+</span>` + marks;
   } else {
     el.innerHTML = `<span><span class="sw" style="background:${css('--blk-covered')}"></span>HDB block — <b>click one (or search above)</b> to see every amenity around it</span>` + marks;
   }
@@ -625,8 +628,9 @@ function setTiles(){
     const low = rows.filter((b,i) => scores[i] <= 4).length;
     const med = [...scores].sort((a,b)=>a-b)[Math.floor(n/2)];
     // same ranking as the table: residential blocks, ties broken by rent
+    // (higher rent = more market-desirable wins)
     const best = rows.filter(b => b[6] > 0)
-      .sort((a,b)=>score(b)-score(a) || rentAvg(a)-rentAvg(b))[0] || rows[0];
+      .sort((a,b)=>score(b)-score(a) || rentAvg(b)-rentAvg(a))[0] || rows[0];
     const rents = rows.map(rentAvg).filter(Boolean).sort((a,b)=>a-b);
     $('#tiles').innerHTML = tilesHtml([
       [fmt(n), 'HDB blocks scored' + (S.town ? ' in ' + TOWN[S.town] : '')],
@@ -670,7 +674,7 @@ function drawHist(){
   const rows = BLOCKS.filter(b => !S.town || b[5] === S.town);
   if (S.mode === 'score'){
     $('#histTitle').textContent = 'Score distribution (0–10)';
-    $('#histNote').textContent = 'weighted: rent 3.0 · MRT 2.0 · supermarket 1.4 · school 1.2 × demand tier · mall 1.0 · hawker 0.7 · infant care 0.5 · CC 0.2 — closer pays more';
+    $('#histNote').textContent = 'weighted: rent level 3.0 (higher = more desirable) · MRT 2.0 · supermarket 1.4 · school 1.2 × demand tier · mall 1.0 · hawker 0.7 · infant care 0.5 · CC 0.2 — closer pays more';
     const bins = Array(11).fill(0);
     rows.forEach(b => bins[Math.min(Math.round(score(b)), 10)]++);
     const bw = (W-m.l-m.r)/11, ymax = Math.max(...bins);
@@ -724,7 +728,7 @@ function drawTowns(){
       [t, vs.reduce((a,v)=>a+v,0)/vs.length, vs.length]).sort((a,b)=>b[1]-a[1]);
     fmtV = v => v.toFixed(1) + '/10';
     title = 'Best towns by average score';
-    note = 'higher = walkable amenities + rent below the island average — click to zoom';
+    note = 'higher = walkable amenities + rents above the island average — click to zoom';
   } else {
     rows = Object.entries(agg).map(([t,vs]) =>
       [t, 100*vs.filter(d=>d>S.bench).length/vs.length, vs.length])
@@ -775,7 +779,7 @@ function drawTable(){
     $('#tblSummary').textContent = 'Table: the 50 best HDB blocks in Singapore';
     // residential blocks only (unit count known) — keeps carparks out of the ranking
     const best = rows.filter(b => b[6] > 0)
-      .sort((a,b)=>score(b)-score(a) || rentAvg(a)-rentAvg(b)).slice(0,50);
+      .sort((a,b)=>score(b)-score(a) || rentAvg(b)-rentAvg(a)).slice(0,50);
     const cols = ['mrt','hawker','super','mall'];
     $('#worst').innerHTML =
       `<tr><th>#</th><th>Block</th><th>Town</th><th style="text-align:right">Score</th><th style="text-align:right">avg rent</th>` +
