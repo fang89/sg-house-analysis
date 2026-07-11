@@ -166,9 +166,9 @@ td.bad{color:var(--st-critical);font-weight:600}
 <p class="sub">How far is each of Singapore's ~13,400 HDB blocks from the nearest
 <b>FairPrice / Sheng Siong supermarket</b>, <b>primary school</b>, <b>shopping mall</b>,
 <b>MRT/LRT exit</b>, <b>hawker centre</b> — plus clinics, community clubs, libraries and parks.
-Pick an amenity to colour the blocks, switch to the <b>score</b> view to see which
-neighbourhoods have everything within walking distance, or <b>search a postal code /
-click any block</b> to see exactly what's around it. Distances are straight-line.</p>
+<b>Search a postal code or click any block</b> to see exactly what's around it, toggle
+amenity layers on the map, or switch to the <b>5-amenity score</b> view to see which
+neighbourhoods have everything within walking distance. Distances are straight-line.</p>
 
 <div class="tiles" id="tiles"></div>
 
@@ -181,7 +181,7 @@ click any block</b> to see exactly what's around it. Distances are straight-line
   </span>
   <label>amenity <select id="fFocus"></select></label>
   <span class="seg" id="modeSeg" role="group" aria-label="Colour mode">
-    <button data-m="status" class="on">Gaps</button><button data-m="heat">Distance heat</button><button data-m="score">5-amenity score</button>
+    <button data-m="plain" class="on">Explore</button><button data-m="score">5-amenity score</button>
   </span>
   <label id="benchWrap">within <select id="fBench">
     <option>300</option><option>400</option><option>500</option><option>800</option>
@@ -266,7 +266,7 @@ const TOWN = {AMK:'Ang Mo Kio',BB:'Bukit Batok',BD:'Bedok',BH:'Bishan',BM:'Bukit
 let BLOCKS = [], AMEN = {}, STATIONS = [], SUM = {};
 let ORDER = [];        // layer order in blocks.json rows
 let COL = {};          // layer -> column index of distance in a block row
-const S = { focus:'super', mode:'status', bench:500, town:'', circles:false,
+const S = { focus:'super', mode:'plain', bench:500, town:'', circles:false,
             visible:new Set(['super']), sel:null };  // sel = index into BLOCKS (block-focus mode)
 
 const dist = (b, layer) => b[COL[layer || S.focus]];
@@ -299,25 +299,16 @@ const TILES = {
 };
 const ATTR = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>';
 
-function heatColor(d){
-  const stops = [[0,'--seq-100'],[200,'--seq-250'],[400,'--seq-400'],[700,'--seq-550'],[1000,'--seq-700']];
-  for (let i = stops.length-1; i >= 0; i--) if (d >= stops[i][0]) return css(stops[i][1]);
-  return css('--seq-100');
-}
 function scoreColor(n){
   return [css('--st-critical'), css('--st-serious'), '#c9a227',
           css('--blk-covered'), '#5daa5d', css('--st-good')][n];
 }
 function blockStyle(b){
-  if (S.mode === 'heat')  return {color:heatColor(dist(b)), r:3.5, op:.85};
   if (S.mode === 'score'){
     const n = score(b);
     return {color:scoreColor(n), r:n <= 2 ? 5.5 : 3, op:.9};
   }
-  const d = dist(b);
-  if (d > S.bench)      return {color:css('--st-critical'), r:6, op:.95};
-  if (d > S.bench*0.8)  return {color:css('--st-serious'), r:4, op:.85};
-  return {color:css('--blk-covered'), r:2.5, op:.55};
+  return {color:css('--blk-covered'), r:2.5, op:.5};  // Explore: neutral dots
 }
 
 function initMap(){
@@ -383,8 +374,8 @@ function drawBlocks(){
       return;
     }
     if (S.town && b[5] !== S.town) return;
-    if (S.mode === 'status' && dist(b) <= S.bench*0.8) return; // covered stay invisible
     if (S.mode === 'score' && score(b) === 5) return;          // fully served hidden
+    // 'plain' (Explore) draws every block as a small neutral dot
     const st = blockStyle(b);
     L.circleMarker([b[2], b[3]], {radius:st.r, stroke:false,
       fillColor:st.color, fillOpacity:st.op})
@@ -434,15 +425,35 @@ function selectBlock(i){
     if (!pt) continue;
     L.polyline([[b[2], b[3]], [pt[1], pt[2]]], {color:layerColor(l, pt[3]),
       weight:2, dashArray:'5,5', opacity:.75, interactive:false}).addTo(fl);
-    nearestMarkers[l] = amenMarker(l, pt, {big:true}).addTo(fl);
+    if (l === 'mrt'){
+      // the line points at the nearest station EXIT — mark it small and
+      // explicit; the station badge itself comes from the context loop
+      nearestMarkers[l] = L.circleMarker([pt[1], pt[2]], {radius:5,
+        color:css('--c-mrt'), weight:2.5, fillColor:'#fff', fillOpacity:1})
+        .bindPopup(`<b>${pt[0]}</b><br><span style="color:${css('--c-mrt')}">●</span> nearest ${pt[3] === 'lrt' ? 'LRT' : 'MRT'} exit`)
+        .addTo(fl);
+    } else {
+      nearestMarkers[l] = amenMarker(l, pt, {big:true}).addTo(fl);
+    }
   }
   // all other amenities within walking range, as smaller context markers
   for (const l of ORDER){
+    if (l === 'mrt') continue; // stations, not 597 exits, drawn below
     (AMEN[l] || []).forEach((pt, j) => {
       if (j === nearIdx(b, l)) return;
       if (dMetres(b[2], b[3], pt[1], pt[2]) <= NEARBY_M)
         amenMarker(l, pt).addTo(fl);
     });
+  }
+  // MRT/LRT context = main stations only
+  for (const [name, lat, lon, kind, exits] of STATIONS){
+    if (dMetres(b[2], b[3], lat, lon) > NEARBY_M) continue;
+    const sz = kind === 'lrt' ? 14 : 18;
+    L.marker([lat, lon], {icon:L.divIcon({className:'',
+      html:`<div class="mrt-badge" style="width:${sz}px;height:${sz}px;background:${css('--c-mrt')};opacity:${kind==='lrt'?0.75:1}">${kind==='lrt'?'L':'M'}</div>`,
+      iconSize:[sz,sz], iconAnchor:[sz/2,sz/2]})})
+      .bindPopup(`<b>${name}</b><br><span style="color:${css('--c-mrt')}">■</span> ${kind.toUpperCase()} station · ${exits} exit${exits>1?'s':''}`)
+      .addTo(fl);
   }
   // the selected block on top
   L.circleMarker([b[2], b[3]], {radius:9, color:'#fff', weight:3,
@@ -523,15 +534,10 @@ function drawLegend(){
       : `background:${c}${LAYERS[l].shape==='badge' ? ';border-radius:3px' : ''}`;
     return `<span><span class="sw" style="${style}"></span>${LAYERS[l].label}</span>`;
   }).join('');
-  if (S.mode === 'heat'){
-    el.innerHTML = `<span><span class="ramp"></span>block: distance to nearest ${LAYERS[S.focus].short} (0 → 1&#8202;km+)</span>` + marks;
-  } else if (S.mode === 'score'){
+  if (S.mode === 'score'){
     el.innerHTML = `<span><span class="ramp score"></span>block: how many of the 5 headline amenities are within their benchmark (0 → 5; fully-served blocks hidden)</span>` + marks;
   } else {
-    el.innerHTML =
-      `<span><span class="sw" style="background:${css('--st-critical')}"></span>▲ block &gt;${fmt(S.bench)} m (gap)</span>` +
-      `<span><span class="sw" style="background:${css('--st-serious')}"></span>${fmt(Math.round(S.bench*0.8))}–${fmt(S.bench)} m</span>` + marks +
-      `<span style="color:var(--ink-3)">covered blocks hidden — use “Distance heat” to see all</span>`;
+    el.innerHTML = `<span><span class="sw" style="background:${css('--blk-covered')}"></span>HDB block — <b>click one (or search above)</b> to see every amenity around it</span>` + marks;
   }
 }
 

@@ -9,8 +9,10 @@ Interactive map of how far every HDB block in Singapore is from the nearest:
 - **Hawker centre** (129, NEA) — plus **CHAS GP clinics** (1,052), **community
   clubs** (130), **public libraries** (27) and **parks** (461)
 
-Pick any amenity to colour the ~13,400 blocks by distance (gap / heat view), or
-switch to the **5-amenity score** to see which neighbourhoods have a
+**Search a postal code / address (OneMap) or click any block** to focus it:
+dashed lines point to the nearest of each amenity (including the nearest MRT
+exit), everything within 1 km appears around it, and a panel lists the lot.
+Or switch to the **5-amenity score** view to see which neighbourhoods have a
 supermarket, primary school, mall, MRT exit *and* hawker centre all within
 walking distance. Every layer can be overlaid as markers on the map.
 
