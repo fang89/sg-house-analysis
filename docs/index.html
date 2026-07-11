@@ -188,7 +188,10 @@ td.bad{color:var(--st-critical);font-weight:600}
   .filters{padding:8px 10px;font-size:13px}
   .filters select{max-width:150px}
   #map{height:58vh;min-height:340px}
-  #focusPanel{top:auto;bottom:8px;left:8px;right:8px;width:auto;max-width:none;max-height:52%}
+  #focusPanel{position:fixed;top:auto;bottom:0;left:0;right:0;width:auto;max-width:none;
+    max-height:78vh;z-index:4000;border-radius:14px 14px 0 0;
+    padding-bottom:calc(12px + env(safe-area-inset-bottom));
+    box-shadow:0 -6px 28px rgba(0,0,0,.35)}
   .card{padding:12px}
   th,td{padding:5px 7px}
   .method{padding:12px 14px}
