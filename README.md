@@ -1,4 +1,4 @@
-# Which HDB block is the best in Singapore?
+# SG House Analysis — which HDB block is the best in Singapore?
 
 Interactive map scoring all ~13,400 HDB blocks **out of 10** on what daily
 life there costs and how walkable it is. Weighted components, in priority
@@ -28,7 +28,7 @@ the runner-up option, and "between two stations" when that's the case. An
 Explore mode, per-town filter, score histogram, best-towns ranking and a
 top-50 table (residential blocks only) round it out.
 
-**Live dashboard:** https://fang89.github.io/hdb-amenities/ *(after Pages is enabled)*
+**Live dashboard:** https://fang89.github.io/sg-house-analysis/ *(after Pages is enabled)*
 
 ## Headline findings (2026-07-11)
 
