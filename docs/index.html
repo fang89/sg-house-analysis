@@ -64,6 +64,17 @@ h1{font-size:22px;margin:0;font-weight:700}
   background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;
   padding:10px 14px;margin-bottom:10px;font-size:13.5px;color:var(--ink-2)}
 .filters label{display:flex;align-items:center;gap:5px;cursor:pointer;white-space:nowrap}
+.searchwrap{position:relative;flex:1 1 220px;max-width:340px}
+.searchwrap input{width:100%;font:inherit;color:var(--ink-1);background:var(--surface-1);
+  border:1px solid var(--ring);border-radius:8px;padding:5px 10px 5px 28px}
+.searchwrap .mag{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--ink-3);pointer-events:none}
+.searchdrop{position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:3000;
+  background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;
+  box-shadow:0 8px 24px rgba(0,0,0,.22);overflow:hidden;display:none}
+.searchdrop button{display:block;width:100%;text-align:left;border:0;background:none;
+  color:var(--ink-1);font:inherit;font-size:13px;padding:8px 12px;cursor:pointer}
+.searchdrop button:hover,.searchdrop button.sel{background:rgba(128,128,128,.12)}
+.searchdrop .addr{color:var(--ink-3);font-size:11.5px}
 .filters select{font:inherit;color:var(--ink-1);background:var(--surface-1);
   border:1px solid var(--ring);border-radius:6px;padding:3px 6px;max-width:210px}
 .seg{display:inline-flex;border:1px solid var(--ring);border-radius:8px;overflow:hidden}
@@ -80,8 +91,28 @@ h1{font-size:22px;margin:0;font-weight:700}
 .layerbar .dot.badge{border-radius:3px}
 .layerbar .dot.hollow{background:transparent !important;border:2.5px solid}
 
+.mapwrap{position:relative}
 #map{height:64vh;min-height:440px;border-radius:12px;border:1px solid var(--ring);
   background:var(--surface-1)}
+#focusPanel{position:absolute;top:12px;right:12px;z-index:1500;width:300px;max-width:calc(100% - 24px);
+  max-height:calc(100% - 24px);overflow-y:auto;background:var(--surface-1);color:var(--ink-1);
+  border:1px solid var(--ring);border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,.25);
+  padding:12px 14px;display:none;font-size:13px}
+#focusPanel h3{margin:0 0 2px;font-size:14.5px}
+#focusPanel .meta{color:var(--ink-3);font-size:12px;margin-bottom:8px}
+#focusPanel .close{position:absolute;top:8px;right:8px;border:1px solid var(--ring);
+  background:none;color:var(--ink-2);border-radius:7px;font:inherit;font-size:12px;
+  padding:2px 8px;cursor:pointer}
+#focusPanel .row{display:flex;align-items:center;gap:8px;padding:5px 0;
+  border-top:1px solid var(--grid);cursor:pointer}
+#focusPanel .row:hover{background:rgba(128,128,128,.08)}
+#focusPanel .row .sw{flex:0 0 10px;width:10px;height:10px;border-radius:50%}
+#focusPanel .row .what{color:var(--ink-3);font-size:11px}
+#focusPanel .row .nm{flex:1;min-width:0}
+#focusPanel .row .nm div:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#focusPanel .row .d{font-variant-numeric:tabular-nums;font-weight:600;white-space:nowrap}
+#focusPanel .row .d.over{color:var(--st-critical)}
+#focusPanel .hint{color:var(--ink-3);font-size:11.5px;margin-top:8px}
 .legend{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;font-size:13px;
   color:var(--ink-2);padding:10px 4px 0}
 .legend .sw{display:inline-block;width:11px;height:11px;border-radius:50%;
@@ -135,12 +166,19 @@ td.bad{color:var(--st-critical);font-weight:600}
 <p class="sub">How far is each of Singapore's ~13,400 HDB blocks from the nearest
 <b>FairPrice / Sheng Siong supermarket</b>, <b>primary school</b>, <b>shopping mall</b>,
 <b>MRT/LRT exit</b>, <b>hawker centre</b> — plus clinics, community clubs, libraries and parks.
-Pick an amenity to colour the blocks, or switch to the <b>score</b> view to see which
-neighbourhoods have everything within walking distance. Distances are straight-line.</p>
+Pick an amenity to colour the blocks, switch to the <b>score</b> view to see which
+neighbourhoods have everything within walking distance, or <b>search a postal code /
+click any block</b> to see exactly what's around it. Distances are straight-line.</p>
 
 <div class="tiles" id="tiles"></div>
 
 <div class="filters">
+  <span class="searchwrap">
+    <span class="mag">⌕</span>
+    <input id="searchBox" type="search" placeholder="Search postal code or address…"
+           autocomplete="off" aria-label="Search postal code or address">
+    <div class="searchdrop" id="searchDrop"></div>
+  </span>
   <label>amenity <select id="fFocus"></select></label>
   <span class="seg" id="modeSeg" role="group" aria-label="Colour mode">
     <button data-m="status" class="on">Gaps</button><button data-m="heat">Distance heat</button><button data-m="score">5-amenity score</button>
@@ -155,7 +193,10 @@ neighbourhoods have everything within walking distance. Distances are straight-l
 
 <div class="layerbar" id="layerbar" role="group" aria-label="Amenity marker layers"></div>
 
-<div id="map"></div>
+<div class="mapwrap">
+  <div id="map"></div>
+  <div id="focusPanel" role="dialog" aria-label="Amenities near selected block"></div>
+</div>
 <div class="legend" id="legend"></div>
 
 <div class="charts">
@@ -226,7 +267,7 @@ let BLOCKS = [], AMEN = {}, STATIONS = [], SUM = {};
 let ORDER = [];        // layer order in blocks.json rows
 let COL = {};          // layer -> column index of distance in a block row
 const S = { focus:'super', mode:'status', bench:500, town:'', circles:false,
-            visible:new Set(['super']) };
+            visible:new Set(['super']), sel:null };  // sel = index into BLOCKS (block-focus mode)
 
 const dist = (b, layer) => b[COL[layer || S.focus]];
 const nearIdx = (b, layer) => b[COL[layer || S.focus] + 1];
@@ -329,36 +370,129 @@ function drawAmenities(){
   }
 }
 
-function blockPopup(b){
-  const rows = ORDER.map(l => {
-    const d = dist(b, l), i = nearIdx(b, l);
-    const pt = (AMEN[l] || [])[i];
-    const c = layerColor(l, pt && pt[3]);
-    const over = d > SUM.benchmarks[l];
-    return `<li><span style="color:${c}">●</span> ${LAYERS[l].short}: <b>${fmt(d)} m</b>` +
-      (pt ? ` <span style="color:var(--ink-3)">${pt[0]}</span>` : '') +
-      (over ? ' <span style="color:var(--st-critical)">▲</span>' : '') + '</li>';
-  }).join('');
-  return `<b>Blk ${b[1]}${b[4] ? ' ' + b[4] : ''}</b>` +
-    `<br>${townOf(b)}${b[0] ? ' · S(' + b[0] + ')' : ''}${b[6] ? ' · ' + fmt(b[6]) + ' units' : ''}` +
-    `<br><span style="color:var(--ink-3)">5-amenity score: <b>${score(b)}/5</b> within benchmarks</span>` +
-    `<ul class="plist">${rows}</ul>`;
-}
-
 function drawBlocks(){
   blockLayer.clearLayers();
-  for (const b of BLOCKS){
-    if (S.town && b[5] !== S.town) continue;
-    if (S.mode === 'status' && dist(b) <= S.bench*0.8) continue; // covered stay invisible
-    if (S.mode === 'score' && score(b) === 5) continue;          // fully served hidden
+  BLOCKS.forEach((b, i) => {
+    if (S.sel !== null){
+      // block-focus mode: everything else is faint context, still clickable
+      if (i === S.sel) return; // the selected block is drawn by drawFocus()
+      L.circleMarker([b[2], b[3]], {radius:2.5, stroke:false,
+        fillColor:css('--blk-covered'), fillOpacity:.35})
+        .on('click', () => selectBlock(i))
+        .addTo(blockLayer);
+      return;
+    }
+    if (S.town && b[5] !== S.town) return;
+    if (S.mode === 'status' && dist(b) <= S.bench*0.8) return; // covered stay invisible
+    if (S.mode === 'score' && score(b) === 5) return;          // fully served hidden
     const st = blockStyle(b);
     L.circleMarker([b[2], b[3]], {radius:st.r, stroke:false,
       fillColor:st.color, fillOpacity:st.op})
-      .bindPopup(blockPopup(b), {maxWidth:320})
+      .on('click', () => selectBlock(i))
       .addTo(blockLayer);
-  }
+  });
   drawCircles();
 }
+
+/* ---------- block-focus mode ---------- */
+const focusLayer = () => (window.__focusLayer = window.__focusLayer || L.layerGroup());
+const NEARBY_M = 1000;
+const dMetres = (lat1, lon1, lat2, lon2) => {
+  const dy = (lat1-lat2)*110574, dx = (lon1-lon2)*111302;
+  return Math.hypot(dx, dy);
+};
+
+function amenMarker(l, pt, opts = {}){
+  const [name,, , sub] = pt, lat = pt[1], lon = pt[2];
+  const c = layerColor(l, sub);
+  let m;
+  if (LAYERS[l].shape === 'badge'){
+    const sz = opts.big ? 18 : 14;
+    m = L.marker([lat, lon], {icon:L.divIcon({className:'',
+      html:`<div class="mrt-badge" style="width:${sz}px;height:${sz}px;background:${c}">${l==='mrt'?(sub==='lrt'?'L':'M'):(l==='library'?'B':'')}</div>`,
+      iconSize:[sz,sz], iconAnchor:[sz/2,sz/2]})});
+  } else if (LAYERS[l].shape === 'hollow'){
+    m = L.circleMarker([lat, lon], {radius:opts.big?6:4.5, color:c, weight:2.5, fillOpacity:0});
+  } else {
+    m = L.circleMarker([lat, lon], {radius:opts.big?6.5:4.5, color:'#fff',
+      weight:1.2, fillColor:c, fillOpacity:1});
+  }
+  return m.bindPopup(amenPopup(l, name, sub));
+}
+
+function selectBlock(i){
+  S.sel = i;
+  if (window.__searchPin){ map.removeLayer(window.__searchPin); window.__searchPin = null; }
+  const b = BLOCKS[i];
+  const fl = focusLayer();
+  fl.clearLayers();
+  drawBlocks();
+
+  const nearestMarkers = {};
+  for (const l of ORDER){
+    const pt = (AMEN[l] || [])[nearIdx(b, l)];
+    if (!pt) continue;
+    L.polyline([[b[2], b[3]], [pt[1], pt[2]]], {color:layerColor(l, pt[3]),
+      weight:2, dashArray:'5,5', opacity:.75, interactive:false}).addTo(fl);
+    nearestMarkers[l] = amenMarker(l, pt, {big:true}).addTo(fl);
+  }
+  // all other amenities within walking range, as smaller context markers
+  for (const l of ORDER){
+    (AMEN[l] || []).forEach((pt, j) => {
+      if (j === nearIdx(b, l)) return;
+      if (dMetres(b[2], b[3], pt[1], pt[2]) <= NEARBY_M)
+        amenMarker(l, pt).addTo(fl);
+    });
+  }
+  // the selected block on top
+  L.circleMarker([b[2], b[3]], {radius:9, color:'#fff', weight:3,
+    fillColor:css('--seq-400'), fillOpacity:1})
+    .bindTooltip(`Blk ${b[1]}${b[4] ? ' ' + b[4] : ''}`, {direction:'top', offset:[0,-8]})
+    .addTo(fl);
+  fl.addTo(map);
+
+  const zoom = Math.max(map.getZoom(), 15);
+  map.setView([b[2], b[3]], zoom);
+  renderFocusPanel(b, nearestMarkers);
+}
+
+function renderFocusPanel(b, nearestMarkers){
+  const rows = ORDER.map(l => {
+    const d = dist(b, l), pt = (AMEN[l] || [])[nearIdx(b, l)];
+    const over = d > SUM.benchmarks[l];
+    const c = layerColor(l, pt && pt[3]);
+    const hollow = LAYERS[l].shape === 'hollow';
+    return `<div class="row" data-l="${l}">
+      <span class="sw" style="${hollow ? 'border:2.5px solid '+c : 'background:'+c}${LAYERS[l].shape==='badge' ? ';border-radius:3px' : ''}"></span>
+      <span class="nm"><div>${pt ? pt[0] : '—'}</div><div class="what">${LAYERS[l].short}</div></span>
+      <span class="d${over ? ' over' : ''}">${fmt(d)} m${over ? ' ▲' : ''}</span>
+    </div>`;
+  }).join('');
+  const p = $('#focusPanel');
+  p.innerHTML = `<button class="close" aria-label="Back to overview">✕ overview</button>
+    <h3>Blk ${b[1]}${b[4] ? ' ' + b[4] : ''}</h3>
+    <div class="meta">${townOf(b)}${b[0] ? ' · S(' + b[0] + ')' : ''}${b[6] ? ' · ' + fmt(b[6]) + ' units' : ''}
+      · score <b>${score(b)}/5</b></div>
+    ${rows}
+    <div class="hint">Nearest of each amenity (dashed lines); smaller markers = everything within 1 km. ▲ beyond its benchmark. Click a row to see it, another block to switch, or Esc to exit.</div>`;
+  p.style.display = 'block';
+  p.querySelector('.close').onclick = clearFocus;
+  p.querySelectorAll('.row').forEach(r => {
+    r.onclick = () => {
+      const m = nearestMarkers[r.dataset.l];
+      if (m){ m.openPopup(); }
+    };
+  });
+}
+
+function clearFocus(){
+  S.sel = null;
+  focusLayer().clearLayers();
+  map.removeLayer(focusLayer());
+  $('#focusPanel').style.display = 'none';
+  drawBlocks();
+}
+addEventListener('keydown', e => { if (e.key === 'Escape' && S.sel !== null) clearFocus(); });
 
 function drawCircles(){
   circleLayer.clearLayers();
@@ -595,6 +729,72 @@ function refreshData(){ setTiles(); drawBlocks(); drawCharts(); drawLegend(); }
 function refreshAll(theme){
   if (theme) tileLayer.setUrl(TILES[curTheme()]);
   drawLayerBar(); drawAmenities(); refreshData();
+  if (S.sel !== null) selectBlock(S.sel); // re-paint focus layer in the new theme
+}
+
+/* ---------- search (OneMap) ---------- */
+const sBox = $('#searchBox'), sDrop = $('#searchDrop');
+let sTimer = null, sResults = [], sSel = 0, sSeq = 0;
+sBox.addEventListener('input', () => {
+  clearTimeout(sTimer);
+  const q = sBox.value.trim();
+  if (q.length < 3){ sDrop.style.display = 'none'; return; }
+  sTimer = setTimeout(() => runSearch(q), 300);
+});
+async function runSearch(q){
+  const seq = ++sSeq;
+  try {
+    const r = await fetch('https://www.onemap.gov.sg/api/common/elastic/search?' +
+      new URLSearchParams({searchVal:q, returnGeom:'Y', getAddrDetails:'Y', pageNum:1}));
+    const j = await r.json();
+    if (seq !== sSeq) return; // a newer query is in flight
+    sResults = (j.results || []).slice(0, 6);
+    sSel = 0;
+    if (!sResults.length){
+      sDrop.innerHTML = `<button disabled style="color:var(--ink-3)">No matches for “${q.replace(/[<>&]/g,'')}”</button>`;
+      sDrop.style.display = 'block';
+      return;
+    }
+    sDrop.innerHTML = sResults.map((x,i) =>
+      `<button data-i="${i}" class="${i===0?'sel':''}"><b>${x.SEARCHVAL}</b><div class="addr">${x.ADDRESS}</div></button>`).join('');
+    sDrop.style.display = 'block';
+    sDrop.querySelectorAll('button[data-i]').forEach(bt => {
+      bt.addEventListener('mousedown', e => { e.preventDefault(); pickResult(+bt.dataset.i); });
+    });
+  } catch(e){ /* network hiccup: keep quiet */ }
+}
+sBox.addEventListener('keydown', e => {
+  if (sDrop.style.display !== 'block') return;
+  if (e.key === 'ArrowDown'){ sSel = Math.min(sSel+1, sResults.length-1); paintSel(); e.preventDefault(); }
+  else if (e.key === 'ArrowUp'){ sSel = Math.max(sSel-1, 0); paintSel(); e.preventDefault(); }
+  else if (e.key === 'Enter' && sResults.length){ pickResult(sSel); e.preventDefault(); }
+  else if (e.key === 'Escape'){ sDrop.style.display = 'none'; }
+});
+function paintSel(){
+  sDrop.querySelectorAll('button[data-i]').forEach((b,i)=>b.classList.toggle('sel', i===sSel));
+}
+sBox.addEventListener('blur', () => setTimeout(()=>{ sDrop.style.display='none'; }, 150));
+function pickResult(i){
+  const x = sResults[i];
+  if (!x) return;
+  sDrop.style.display = 'none';
+  sBox.value = x.SEARCHVAL;
+  const lat = +x.LATITUDE, lon = +x.LONGITUDE;
+  if (window.__searchPin){ map.removeLayer(window.__searchPin); window.__searchPin = null; }
+  // snap to the nearest HDB block and open its amenity panel
+  let best = Infinity, bi = -1;
+  BLOCKS.forEach((b, j) => {
+    const d = dMetres(lat, lon, b[2], b[3]);
+    if (d < best){ best = d; bi = j; }
+  });
+  if (bi >= 0 && best <= 400){
+    selectBlock(bi);
+  } else {
+    map.setView([lat, lon], 16);
+    window.__searchPin = L.marker([lat, lon]).addTo(map)
+      .bindPopup(`<b>${x.SEARCHVAL}</b><br>${x.ADDRESS}<br><span style="color:var(--ink-3)">No HDB block within 400 m — nearest is ${fmt(Math.round(best))} m away.</span>`)
+      .openPopup();
+  }
 }
 
 /* ---------- filters ---------- */
