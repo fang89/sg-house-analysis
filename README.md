@@ -25,7 +25,7 @@ Every layer can be overlaid as markers on the map.
   4,662 blocks are beyond that (worst ≈ 3.3 km, in estates served mainly by
   other chains)
 - **97%** are within 1 km of a primary school
-- **75%** are within 800 m of an MRT/LRT exit (median 505 m)
+- **72%** are within 800 m of an MRT/LRT station (median 550 m)
 - Hawker centres are the scarcest headline amenity: median 640 m, only **39%**
   of blocks within 500 m
 - **16%** of blocks score a perfect 10/10 (all five everyday amenities within
@@ -98,8 +98,8 @@ Push to GitHub → repo Settings → Pages → "Deploy from a branch" → branch
 
 ## Sources & licences
 
-Data: [data.gov.sg](https://data.gov.sg) datasets (SFA, MOE, LTA, NEA, MOH,
-PA, NLB, NParks, HDB) under the
+Data: [data.gov.sg](https://data.gov.sg) datasets (SFA, MOE, LTA, NEA, PA,
+HDB) under the
 [Singapore Open Data Licence](https://data.gov.sg/open-data-licence).
 Geocoding: [OneMap](https://www.onemap.gov.sg/), Singapore Land Authority.
 Basemap: © OpenStreetMap contributors, © CARTO. Mall list adapted from
