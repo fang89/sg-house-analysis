@@ -189,7 +189,7 @@ td.bad{color:var(--st-critical);font-weight:600}
   .filters select{max-width:150px}
   #map{height:58vh;min-height:340px}
   #focusPanel{position:fixed;top:auto;bottom:0;left:0;right:0;width:auto;max-width:none;
-    max-height:78vh;z-index:4000;border-radius:14px 14px 0 0;
+    height:50vh;z-index:4000;border-radius:14px 14px 0 0;
     padding-bottom:calc(12px + env(safe-area-inset-bottom));
     box-shadow:0 -6px 28px rgba(0,0,0,.35)}
   .card{padding:12px}
@@ -587,6 +587,12 @@ function selectBlock(i){
   const zoom = Math.max(map.getZoom(), 15);
   map.setView([b[2], b[3]], zoom);
   renderFocusPanel(b, nearestMarkers);
+  if (matchMedia('(max-width:640px)').matches){
+    // half map, half scorecard: map's top half stays visible above the
+    // 50vh bottom sheet, with the block centred in that visible strip
+    $('#map').scrollIntoView({behavior:'smooth', block:'start'});
+    map.panBy([0, innerHeight * 0.04], {animate: false});
+  }
 }
 
 function renderFocusPanel(b, nearestMarkers){
@@ -739,7 +745,8 @@ function hookTiles(){
 // jump the map to one block and open its scorecard
 function openBlock(i){
   selectBlock(i);
-  $('#map').scrollIntoView({behavior:'smooth', block:'center'});
+  if (!matchMedia('(max-width:640px)').matches)
+    $('#map').scrollIntoView({behavior:'smooth', block:'center'});
 }
 
 function tileAction(act){
