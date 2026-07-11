@@ -2,22 +2,33 @@
  "generated": "2026-07-11",
  "blocks": 13436,
  "layer_order": [
+  "mrt",
   "super",
+  "infantcare",
   "school",
   "mall",
-  "mrt",
   "hawker",
   "communityclub"
  ],
  "benchmarks": {
+  "mrt": 800,
   "super": 500,
+  "infantcare": 800,
   "school": 1000,
   "mall": 1000,
-  "mrt": 800,
   "hawker": 500,
   "communityclub": 1000
  },
  "layers": {
+  "mrt": {
+   "count": 186,
+   "benchmark_m": 800,
+   "median_m": 550,
+   "p90_m": 1193,
+   "max_m": 3665,
+   "blocks_over": 3752,
+   "pct_within": 72.1
+  },
   "super": {
    "count": 216,
    "benchmark_m": 500,
@@ -26,6 +37,15 @@
    "max_m": 3265,
    "blocks_over": 4662,
    "pct_within": 65.3
+  },
+  "infantcare": {
+   "count": 890,
+   "benchmark_m": 800,
+   "median_m": 167,
+   "p90_m": 344,
+   "max_m": 3541,
+   "blocks_over": 26,
+   "pct_within": 99.8
   },
   "school": {
    "count": 182,
@@ -44,15 +64,6 @@
    "max_m": 3272,
    "blocks_over": 4287,
    "pct_within": 68.1
-  },
-  "mrt": {
-   "count": 186,
-   "benchmark_m": 800,
-   "median_m": 550,
-   "p90_m": 1193,
-   "max_m": 3665,
-   "blocks_over": 3752,
-   "pct_within": 72.1
   },
   "hawker": {
    "count": 129,
@@ -76,5 +87,24 @@
  "stations": {
   "mrt": 145,
   "lrt": 41
+ },
+ "rent": {
+  "months": 12,
+  "island_avg_by_flat_type": {
+   "1-ROOM": 1898,
+   "2-ROOM": 2262,
+   "3-ROOM": 2790,
+   "4-ROOM": 3335,
+   "5-ROOM": 3542,
+   "EXECUTIVE": 3709
+  },
+  "blocks_with_own_rentals": 8880,
+  "pct_blocks_matched": 66.1,
+  "median_shown_avg": 3200,
+  "bands": {
+   "cheap": 0.95,
+   "mid": 1.1,
+   "min_n": 3
+  }
  }
 }

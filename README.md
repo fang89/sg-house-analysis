@@ -2,19 +2,25 @@
 
 Interactive map of how far every HDB block in Singapore is from the nearest:
 
+- **MRT / LRT station** (186, position = mean of the LTA exit layer)
 - **FairPrice / Sheng Siong supermarket** (216 stores, SFA licence register)
+- **Infant care centre** (890, ECDA centres offering infant places)
 - **Primary school** (182 schools, MOE School Directory)
 - **Shopping mall** (110 major malls, editorial list)
-- **MRT / LRT station** (186, position = mean of the LTA exit layer)
 - **Hawker centre** (129, NEA) — plus **community clubs** (130)
+
+…and what it rents for: every block shows its **average monthly rent** from
+the last 12 months of HDB rental approvals (41k transactions; 66% of blocks
+have their own, the rest show the town average).
 
 **Search a postal code / address (OneMap) or click any block** to focus it:
 dashed lines point to the nearest of each amenity, everything within 1 km
 appears around it, and a panel lists the lot — how many of each amenity are
 nearby, the runner-up option, and "between two stations" when that's the case.
-Or switch to the **amenity score** view: each block scored **0–10** — the five
-everyday amenity types (supermarket, primary school, mall, MRT/LRT, hawker)
-each give 2 points within their benchmark distance, 1 point within 1.5× it.
+Or switch to the **score** view: each block scored **0–12** — the five everyday
+amenity types (supermarket, primary school, mall, MRT/LRT, hawker) each give
+2 points within their benchmark distance (1 point within 1.5×), plus 0–2
+points for rent below the island average for the same flat types.
 Every layer can be overlaid as markers on the map.
 
 **Live dashboard:** https://fang89.github.io/hdb-amenities/ *(after Pages is enabled)*
@@ -28,9 +34,11 @@ Every layer can be overlaid as markers on the map.
 - **72%** are within 800 m of an MRT/LRT station (median 550 m)
 - Hawker centres are the scarcest headline amenity: median 640 m, only **39%**
   of blocks within 500 m
-- **16%** of blocks score a perfect 10/10 (all five everyday amenities within
-  a comfortable walk); Tengah, Pasir Ris and Yishun have the lowest average
-  scores (new estates where amenities are still building out)
+- Median score is **9/12**; 18% of blocks score 11–12. Tengah, Pasir Ris and
+  Yishun have the lowest average scores (new estates where amenities are
+  still building out)
+- Median block-average rent is **S$3,200/mo**; island averages by flat type:
+  3-room S$2,790, 4-room S$3,335, 5-room S$3,542
 
 ## Repo layout
 
@@ -58,6 +66,8 @@ Raw inputs in `data/` and how to re-download them:
 | `mrt_exits.geojson` | [LTA MRT/LRT Station Exit](https://data.gov.sg/datasets/d_b39d3a0871985372d7e1637193335da5/view) |
 | `hawker_centres.geojson` | [NEA Hawker Centres](https://data.gov.sg/datasets/d_4a086da0a5553be1d89383cd90d07ecd/view) |
 | `extra_communityclub.geojson` | [PA Community Clubs](https://data.gov.sg/datasets/d_9de02d3fb33d96da1855f4fbef549a0f/view) |
+| `ecda_centres.json` + `childcare_centres.geojson` | [ECDA Listing of Centres](https://data.gov.sg/datasets/d_696c994c50745b079b3684f0e90ffc53/view) + [Child Care Services](https://data.gov.sg/datasets/d_5d668e3f544335f8028f546827b773b4/view) (infant-care filter) |
+| `rents.json` | [Renting Out of Flats from Jan 2021](https://data.gov.sg/datasets/d_c9f57187485a850908655db0e8cfe651/view) (HDB, last 12 months kept) |
 | `hdb_blocks_base.json` | HDB block centroids derived from [HDB Existing Building](https://data.gov.sg/datasets/d_16b157c52ed637edd6ba1232e026258d/view) (see the [atm-500m](https://github.com/fang89/atm-500m) pipeline) |
 
 Any additional `data/extra_<name>.geojson` you drop in is picked up
@@ -78,12 +88,16 @@ Push to GitHub → repo Settings → Pages → "Deploy from a branch" → branch
 
 - **Distances are straight-line** from the HDB building centroid; real walking
   routes are longer. MRT/LRT distance is to the *station* (mean of its exits).
-- **Amenity score (0–10)**: supermarket, primary school, mall, MRT/LRT and
-  hawker centre each contribute 2 pts if the nearest is within its benchmark
-  (supermarket/hawker 500 m, MRT 800 m, school/mall 1 km), 1 pt within 1.5×
-  the benchmark, 0 beyond. Types weigh equally; abundance (several of one
-  type) is shown in the block panel but not scored. Community clubs are
-  mapped, not scored.
+- **Score (0–12) = amenities (0–10) + rent (0–2)**: supermarket, primary
+  school, mall, MRT/LRT and hawker centre each contribute 2 pts if the
+  nearest is within its benchmark (supermarket/hawker 500 m, MRT 800 m,
+  school/mall 1 km), 1 pt within 1.5× the benchmark, 0 beyond. Rent: block
+  average over the last 12 months vs the island average for the same flat
+  types — ratio ≤0.95 → 2 pts, ≤1.10 → 1 pt; blocks with <3 rentals use
+  their town's ratio; no data → neutral 1. Types weigh equally; abundance
+  is shown in the block panel but not scored. Infant care and community
+  clubs are mapped, not scored. Rents are owner-declared HDB approvals —
+  indicative only.
 - **Benchmarks are editorial yardsticks**, adjustable in the UI — they are
   not official standards.
 - The HDB layer includes **every HDB building** (some are carparks or

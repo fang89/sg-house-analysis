@@ -180,6 +180,92 @@ def fetch_mrt():
     return st_out, exits
 
 
+def fetch_infantcare():
+    """ECDA centres offering infant care (any infant vacancy field is not
+    'Not Applicable' in the Listing of Centres), coordinates joined from
+    the Child Care Services geojson by postal code; OneMap fills gaps."""
+    listing = json.load(open(os.path.join(DATA, "ecda_centres.json")))
+    g = json.load(open(os.path.join(DATA, "childcare_centres.geojson")))
+    by_postal = {}
+    for f in g["features"]:
+        p = f.get("properties") or {}
+        postal = str(p.get("ADDRESSPOSTALCODE") or "").strip().zfill(6)
+        if postal != "000000" and f["geometry"]["type"] == "Point":
+            lon, lat = f["geometry"]["coordinates"][:2]
+            by_postal.setdefault(postal, (lat, lon))
+    out, misses = [], 0
+    for r in listing:
+        offers = any(
+            str(r.get(f"infant_vacancy_{k}", "Not Applicable")) != "Not Applicable"
+            for k in ("current_month", "next_month", "third_month"))
+        if not offers:
+            continue
+        postal = str(r.get("postal_code") or "").strip().zfill(6)
+        ll = by_postal.get(postal)
+        if ll is None:
+            geo = onemap_search(postal)
+            if geo and in_sg(geo[0], geo[1]):
+                ll = (geo[0], geo[1])
+        if ll is None or not in_sg(*ll):
+            misses += 1
+            continue
+        name = re.sub(r"\s+(PTE\.?\s*LTD\.?|PRIVATE LIMITED|LLP|LIMITED)\s*$",
+                      "", r.get("centre_name", "").strip(), flags=re.I)
+        if name.isupper():
+            name = title(name)
+        out.append({"name": name, "postal": postal,
+                    "lat": round(ll[0], 6), "lon": round(ll[1], 6),
+                    "cat": "infantcare"})
+    if misses:
+        print(f"  {misses} infant-care centres could not be located", flush=True)
+    return out
+
+
+RENT_DATASET = "d_c9f57187485a850908655db0e8cfe651"  # Renting Out of Flats, Jan 2021-
+RENT_MONTHS = 12
+
+
+def fetch_rents():
+    """Last RENT_MONTHS months of HDB rental approvals (block-level,
+    owner-declared): [month, town, block, street, flat_type, rent]."""
+    import datetime
+    today = datetime.date.today()
+    cutoff = today.replace(day=1) - datetime.timedelta(days=RENT_MONTHS * 31)
+    cutoff = f"{cutoff.year:04d}-{cutoff.month:02d}"
+    out, offset = [], 0
+    while True:
+        u = ("https://data.gov.sg/api/action/datastore_search?"
+             + urllib.parse.urlencode({
+                 "resource_id": RENT_DATASET, "limit": 10000,
+                 "offset": offset, "sort": "rent_approval_date desc"}))
+        for attempt in range(4):
+            try:
+                r = json.load(urllib.request.urlopen(u, timeout=60))["result"]
+                break
+            except Exception:
+                time.sleep(5 * (attempt + 1))
+        else:
+            break
+        recs = r["records"]
+        if not recs:
+            break
+        for x in recs:
+            if x["rent_approval_date"] < cutoff:
+                print(f"  rents: {len(out)} rows since {cutoff}", flush=True)
+                return out
+            try:
+                rent = int(float(x["monthly_rent"]))
+            except (TypeError, ValueError):
+                continue
+            out.append([x["rent_approval_date"], x["town"].strip().upper(),
+                        x["block"].strip().upper(),
+                        x["street_name"].strip().upper(),
+                        x["flat_type"].strip().upper(), rent])
+        offset += 10000
+    print(f"  rents: {len(out)} rows since {cutoff}", flush=True)
+    return out
+
+
 def parse_desc(html):
     """data.gov.sg KML-style Description: <th>KEY</th> <td>VALUE</td> table."""
     return {m.group(1).strip(): m.group(2).strip()
@@ -259,8 +345,17 @@ def main():
     save_cache()
     print(f"  {len(result['mall'])}", flush=True)
 
+    print("Infant care…", flush=True)
+    result["infantcare"] = fetch_infantcare()
+    save_cache()
+    print(f"  {len(result['infantcare'])}", flush=True)
+
     json.dump(result, open(os.path.join(DATA, "amenities.json"), "w"))
     print("wrote data/amenities.json", flush=True)
+
+    print("HDB rentals…", flush=True)
+    json.dump(fetch_rents(), open(os.path.join(DATA, "rents.json"), "w"))
+    print("wrote data/rents.json", flush=True)
 
 
 if __name__ == "__main__":
