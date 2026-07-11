@@ -50,6 +50,18 @@ h1{font-size:22px;margin:0;font-weight:700}
 #themeBtn{margin-left:auto;border:1px solid var(--ring);background:var(--surface-1);
   color:var(--ink-2);border-radius:8px;padding:4px 10px;font-size:13px;cursor:pointer}
 
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:0 0 12px}
+.hero .searchwrap{flex:1 1 300px;max-width:440px}
+.hero .searchwrap input{font-size:16px;padding:10px 12px 10px 36px;border-radius:10px;
+  border:1.5px solid var(--seq-400)}
+.hero .mag{left:13px;font-size:16px}
+.heroHint{color:var(--ink-3);font-size:13px;flex:1 1 240px}
+.wchips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
+.wchips span{background:var(--surface-1);border:1px solid var(--ring);border-radius:14px;
+  padding:3px 10px;font-size:12.5px;color:var(--ink-2);white-space:nowrap;
+  font-variant-numeric:tabular-nums}
+.wchips b{color:var(--ink-1);font-weight:600}
+
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
 .tile{background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;padding:12px 14px}
 .tile .v{font-size:26px;font-weight:700;letter-spacing:-.01em}
@@ -69,7 +81,8 @@ tr.rowlink:hover td{background:rgba(127,127,127,.09)}
   padding:10px 14px;margin-bottom:10px;font-size:13.5px;color:var(--ink-2)}
 .filters label{display:flex;align-items:center;gap:5px;cursor:pointer;white-space:nowrap}
 .searchwrap{position:relative;flex:1 1 220px;max-width:340px}
-.searchwrap input{width:100%;font:inherit;color:var(--ink-1);background:var(--surface-1);
+.searchwrap input{width:100%;font:inherit;font-size:16px;color:var(--ink-1);
+  background:var(--surface-1);
   border:1px solid var(--ring);border-radius:8px;padding:5px 10px 5px 28px}
 .searchwrap .mag{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--ink-3);pointer-events:none}
 .searchdrop{position:absolute;top:calc(100% + 4px);left:0;right:0;z-index:3000;
@@ -159,6 +172,31 @@ td.bad{color:var(--st-critical);font-weight:600}
 .mrt-badge{display:flex;align-items:center;justify-content:center;color:#fff;
   font:700 9px/1 system-ui;border-radius:4px;border:1.5px solid #fff;
   box-shadow:0 0 3px rgba(0,0,0,.45)}
+
+/* ---------- mobile ---------- */
+@media (max-width:640px){
+  .wrap{padding:14px 10px 40px}
+  h1{font-size:19px}
+  .sub{font-size:13.5px}
+  .hero .searchwrap{max-width:none}
+  .tiles{grid-template-columns:repeat(2,1fr);gap:8px}
+  .tile{padding:10px 12px}
+  .tile .v{font-size:21px}
+  .filters{padding:8px 10px;font-size:13px}
+  .filters select{max-width:150px}
+  #map{height:58vh;min-height:340px}
+  #focusPanel{top:auto;bottom:8px;left:8px;right:8px;width:auto;max-width:none;max-height:52%}
+  .card{padding:12px}
+  th,td{padding:5px 7px}
+  .method{padding:12px 14px}
+}
+@media (pointer:coarse){
+  .seg button{padding:8px 13px}
+  .layerbar button{padding:7px 12px}
+  .filters select{padding:6px 8px}
+  #focusPanel .close{padding:5px 10px}
+  #focusPanel .row{padding:8px 0}
+}
 </style>
 </head>
 <body>
@@ -167,24 +205,37 @@ td.bad{color:var(--st-critical);font-weight:600}
   <h1>Which HDB block is the best in Singapore?</h1>
   <button id="themeBtn" aria-label="Toggle dark mode">◐ theme</button>
 </header>
-<p class="sub">All ~13,400 HDB blocks, <b>scored out of 10</b> on how desirable the market judges
-them and how walkable they are: <b>rent level</b> weighs most (3.0 — higher rent = the market's
-vote for a better block), then <b>MRT/LRT</b> (2.0),
-<b>FairPrice / Sheng Siong supermarket</b> (1.4), <b>primary school</b> (1.2, popular schools
-count extra), <b>mall</b> (1.0), <b>hawker centre</b> (0.7), <b>infant care</b> (0.5) and
-<b>community club</b> (0.2). Closer pays more: an MRT at 100&#8202;m earns more than one at 300&#8202;m.
-Green blocks score highest. <b>Search a postal code or click any block</b> for its full
-scorecard — every distance, average rent, and what else is nearby. Distances are straight-line.</p>
+<p class="sub">All ~13,400 HDB blocks <b>scored out of 10</b> on how walkable daily life is
+and how desirable the market judges them. Green blocks score highest.</p>
+
+<div class="hero">
+  <span class="searchwrap">
+    <span class="mag">⌕</span>
+    <input id="searchBox" type="search" placeholder="Search your postal code or address…"
+           autocomplete="off" aria-label="Search postal code or address">
+    <div class="searchdrop" id="searchDrop"></div>
+  </span>
+  <span class="heroHint">…or tap any block on the map for its full scorecard: every distance,
+  average rent, and what else is nearby.</span>
+</div>
+
+<div class="wchips" aria-label="Score weights, heaviest first">
+  <span><b>Rent level</b> 3.0</span>
+  <span><b>MRT / LRT</b> 2.0</span>
+  <span><b>Supermarket</b> 1.4</span>
+  <span><b>Primary school</b> 1.2</span>
+  <span><b>Mall</b> 1.0</span>
+  <span><b>Hawker centre</b> 0.7</span>
+  <span><b>Infant care</b> 0.5</span>
+  <span><b>Community club</b> 0.2</span>
+</div>
+<p class="sub">Those are the eight weights, heaviest first. Higher rent counts <i>for</i> a block
+(the market's vote for a better address), popular primary schools count extra, and closer pays
+more — an MRT at 100&#8202;m earns more than one at 300&#8202;m. Distances are straight-line.</p>
 
 <div class="tiles" id="tiles"></div>
 
 <div class="filters">
-  <span class="searchwrap">
-    <span class="mag">⌕</span>
-    <input id="searchBox" type="search" placeholder="Search postal code or address…"
-           autocomplete="off" aria-label="Search postal code or address">
-    <div class="searchdrop" id="searchDrop"></div>
-  </span>
   <label>amenity <select id="fFocus"></select></label>
   <span class="seg" id="modeSeg" role="group" aria-label="Colour mode">
     <button data-m="score" class="on">Score /10</button><button data-m="plain">Explore</button>
