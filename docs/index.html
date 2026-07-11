@@ -56,6 +56,13 @@ h1{font-size:22px;margin:0;font-weight:700}
 .tile .v.bad{color:var(--st-critical)}
 .tile .v.good{color:var(--st-good)}
 .tile .k{color:var(--ink-2);font-size:12.5px;margin-top:2px}
+.tile[data-act]{cursor:pointer;transition:border-color .15s}
+.tile[data-act]:hover,.tile[data-act]:focus-visible{border-color:var(--seq-400)}
+.tile[data-act] .k::after{content:' ▸';opacity:.55}
+tr.rowlink{cursor:pointer}
+tr.rowlink:hover td{background:rgba(127,127,127,.09)}
+.linklike{background:none;border:0;padding:0;font:inherit;color:var(--ink-2);
+  text-decoration:underline;cursor:pointer}
 
 .filters{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;
   background:var(--surface-1);border:1px solid var(--ring);border-radius:10px;
@@ -313,7 +320,8 @@ let BLOCKS = [], AMEN = {}, STATIONS = [], SUM = {};
 let ORDER = [];        // layer order in blocks.json rows
 let COL = {};          // layer -> column index of distance in a block row
 const S = { focus:'mrt', mode:'score', bench:800, town:'', circles:false,
-            visible:new Set(['mrt']), sel:null };  // sel = index into BLOCKS (block-focus mode)
+            visible:new Set(['mrt']), sel:null,   // sel = index into BLOCKS (block-focus mode)
+            tblFilter:null };                     // bottom table: null = top 50, 'top' = 9+, 'low' = <=4
 
 const dist = (b, layer) => b[COL[layer || S.focus]];
 const nearIdx = (b, layer) => b[COL[layer || S.focus] + 1];
@@ -635,11 +643,12 @@ function setTiles(){
     $('#tiles').innerHTML = tilesHtml([
       [fmt(n), 'HDB blocks scored' + (S.town ? ' in ' + TOWN[S.town] : '')],
       [fmtScore(med) + '/10', 'median score'],
-      [fmtScore(score(best)) + '/10', `best: Blk ${best[1]} ${best[4] || townOf(best)}`, false, true],
-      [fmt(top), 'blocks scoring 9+', false, top > 0],
-      [fmt(low), 'blocks scoring ≤4', low > 0],
+      [fmtScore(score(best)) + '/10', `best: Blk ${best[1]} ${best[4] || townOf(best)}`, false, true, 'best'],
+      [fmt(top), 'blocks scoring 9+', false, top > 0, top ? 'top' : ''],
+      [fmt(low), 'blocks scoring ≤4', low > 0, false, low ? 'low' : ''],
       ['S$' + fmt(rents[Math.floor(rents.length/2)] || 0), 'median avg rent/mo'],
     ]);
+    hookTiles();
     return;
   }
   const ds = rows.map(b => dist(b)).sort((a,b)=>a-b);
@@ -651,11 +660,49 @@ function setTiles(){
     [fmt(ds[Math.floor(n/2)]) + ' m', 'median distance'],
     [(100*(n-over)/n).toFixed(1) + '%', `blocks within ${fmt(S.bench)} m`, false, over===0],
     [fmt(over), `blocks beyond ${fmt(S.bench)} m`, over > 0],
-    [fmt(dist(worst)) + ' m', `worst: Blk ${worst[1]} ${worst[4] || (worst[0] ? 'S(' + worst[0] + ')' : townOf(worst))}`],
+    [fmt(dist(worst)) + ' m', `worst: Blk ${worst[1]} ${worst[4] || (worst[0] ? 'S(' + worst[0] + ')' : townOf(worst))}`, false, false, 'worst'],
   ]);
+  hookTiles();
 }
-const tilesHtml = rows => rows.map(([v,k,bad,good]) =>
-  `<div class="tile"><div class="v${bad?' bad':''}${good?' good':''}">${v}</div><div class="k">${k}</div></div>`).join('');
+const tilesHtml = rows => rows.map(([v,k,bad,good,act]) =>
+  `<div class="tile"${act ? ` data-act="${act}" role="button" tabindex="0"
+     aria-label="${k} — show on the map or in the list"` : ''}>
+   <div class="v${bad?' bad':''}${good?' good':''}">${v}</div><div class="k">${k}</div></div>`).join('');
+
+function hookTiles(){
+  $('#tiles').querySelectorAll('[data-act]').forEach(t => {
+    const go = () => tileAction(t.dataset.act);
+    t.onclick = go;
+    t.onkeydown = e => { if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); go(); } };
+  });
+}
+
+// jump the map to one block and open its scorecard
+function openBlock(i){
+  selectBlock(i);
+  $('#map').scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+function tileAction(act){
+  const rows = BLOCKS.filter(b => !S.town || b[5] === S.town);
+  if (act === 'best'){
+    const best = rows.filter(b => b[6] > 0)
+      .sort((a,b)=>score(b)-score(a) || rentAvg(b)-rentAvg(a))[0];
+    if (best) openBlock(BLOCKS.indexOf(best));
+    return;
+  }
+  if (act === 'worst'){
+    const worst = rows.reduce((a,b)=>dist(b)>dist(a)?b:a, rows[0]);
+    if (worst) openBlock(BLOCKS.indexOf(worst));
+    return;
+  }
+  // 'top' / 'low': show that list in the bottom table and scroll to it
+  S.tblFilter = S.tblFilter === act ? null : act;
+  drawTable();
+  const d = document.querySelector('details.tbl');
+  d.open = true;
+  d.scrollIntoView({behavior:'smooth'});
+}
 
 /* ---------- charts ---------- */
 const tt = $('#tt');
@@ -776,27 +823,51 @@ function zoomTown(){
 function drawTable(){
   const rows = BLOCKS.filter(b => !S.town || b[5] === S.town);
   if (S.mode === 'score'){
-    $('#tblSummary').textContent = 'Table: the 50 best HDB blocks in Singapore';
-    // residential blocks only (unit count known) — keeps carparks out of the ranking
-    const best = rows.filter(b => b[6] > 0)
-      .sort((a,b)=>score(b)-score(a) || rentAvg(b)-rentAvg(a)).slice(0,50);
     const cols = ['mrt','hawker','super','mall'];
-    $('#worst').innerHTML =
+    // which list: the top-50 default, or a tile's filter (9+ / <=4)
+    let list, title, backRow = '';
+    if (S.tblFilter === 'top' || S.tblFilter === 'low'){
+      const filt = S.tblFilter === 'top' ? (s => s >= 9) : (s => s <= 4);
+      list = rows.map(b => [score(b), b]).filter(([s]) => filt(s))
+        .sort((a,b) => S.tblFilter === 'top' ? b[0]-a[0] : a[0]-b[0])
+        .map(([,b]) => b);
+      title = `Table: ${fmt(list.length)} blocks scoring ${S.tblFilter === 'top' ? '9+' : '≤4'}` +
+        (S.town ? ' in ' + TOWN[S.town] : '') + ' — click a row to open it on the map';
+      backRow = `<tr><td colspan="${5 + cols.length}">
+        <button class="linklike" id="tblBack">← back to the 50 best blocks</button></td></tr>`;
+    } else {
+      // residential blocks only (unit count known) — keeps carparks out of the ranking
+      list = rows.filter(b => b[6] > 0)
+        .sort((a,b)=>score(b)-score(a) || rentAvg(b)-rentAvg(a)).slice(0,50);
+      title = 'Table: the 50 best HDB blocks in Singapore — click a row to open it on the map';
+    }
+    $('#tblSummary').textContent = title;
+    $('#worst').innerHTML = backRow +
       `<tr><th>#</th><th>Block</th><th>Town</th><th style="text-align:right">Score</th><th style="text-align:right">avg rent</th>` +
       cols.map(l=>`<th style="text-align:right">${LAYERS[l].short}</th>`).join('') + `</tr>` +
-      best.map((b,i)=>`<tr><td>${i+1}</td><td>Blk ${b[1]} ${b[4]||''}</td><td>${townOf(b)}</td><td class="num" style="font-weight:600">${fmtScore(score(b))}</td>` +
+      list.map((b,i)=>`<tr class="rowlink" data-i="${BLOCKS.indexOf(b)}"><td>${i+1}</td><td>Blk ${b[1]} ${b[4]||''}</td><td>${townOf(b)}</td><td class="num" style="font-weight:600">${fmtScore(score(b))}</td>` +
         `<td class="num">${rentAvg(b) ? 'S$' + fmt(rentAvg(b)) + (rentN(b) ? '' : '*') : '—'}</td>` +
         cols.map(l=>`<td class="num${dist(b,l)>SUM.benchmarks[l]?' bad':''}">${fmt(dist(b,l))} m</td>`).join('') + `</tr>`).join('');
+    const back = $('#tblBack');
+    if (back) back.onclick = () => { S.tblFilter = null; drawTable(); };
+    hookTableRows();
     return;
   }
-  $('#tblSummary').textContent = `Table: 50 HDB blocks farthest from a ${LAYERS[S.focus].short}`;
+  $('#tblSummary').textContent = `Table: 50 HDB blocks farthest from a ${LAYERS[S.focus].short} — click a row to open it on the map`;
   const worst = [...rows].sort((a,b)=>dist(b)-dist(a)).slice(0,50);
   $('#worst').innerHTML =
     `<tr><th>Block</th><th>Postal</th><th>Town</th><th style="text-align:right">Distance</th><th>Nearest ${LAYERS[S.focus].short}</th></tr>` +
     worst.map(b=>{
       const pt = (AMEN[S.focus]||[])[nearIdx(b)];
-      return `<tr><td>Blk ${b[1]} ${b[4]||''}</td><td>${b[0]}</td><td>${townOf(b)}</td>
+      return `<tr class="rowlink" data-i="${BLOCKS.indexOf(b)}"><td>Blk ${b[1]} ${b[4]||''}</td><td>${b[0]}</td><td>${townOf(b)}</td>
       <td class="num bad">${fmt(dist(b))} m</td><td>${pt?pt[0]:''}</td></tr>`;}).join('');
+  hookTableRows();
+}
+
+function hookTableRows(){
+  $('#worst').querySelectorAll('tr.rowlink').forEach(tr => {
+    tr.onclick = () => openBlock(+tr.dataset.i);
+  });
 }
 
 /* ---------- layer bar ---------- */
