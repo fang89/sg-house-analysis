@@ -56,6 +56,9 @@ h1{font-size:22px;margin:0;font-weight:700}
   border:1.5px solid var(--seq-400)}
 .hero .mag{left:13px;font-size:16px}
 .heroHint{color:var(--ink-3);font-size:13px;flex:1 1 240px}
+.scorehow{margin-top:16px}
+.scorehow h2{font-size:15px;font-weight:600;margin:0 0 8px}
+.scorehow .sub{margin:8px 0 0}
 .wchips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
 .wchips span{background:var(--surface-1);border:1px solid var(--ring);border-radius:14px;
   padding:3px 10px;font-size:12.5px;color:var(--ink-2);white-space:nowrap;
@@ -205,8 +208,8 @@ td.bad{color:var(--st-critical);font-weight:600}
   <h1>Which HDB block is the best in Singapore?</h1>
   <button id="themeBtn" aria-label="Toggle dark mode">◐ theme</button>
 </header>
-<p class="sub">All ~13,400 HDB blocks <b>scored out of 10</b> on how walkable daily life is
-and how desirable the market judges them. Green blocks score highest.</p>
+<p class="sub">All ~13,400 HDB blocks <b>scored out of 10</b> on rent value and
+walkability. Green = best.</p>
 
 <div class="hero">
   <span class="searchwrap">
@@ -215,23 +218,8 @@ and how desirable the market judges them. Green blocks score highest.</p>
            autocomplete="off" aria-label="Search postal code or address">
     <div class="searchdrop" id="searchDrop"></div>
   </span>
-  <span class="heroHint">…or tap any block on the map for its full scorecard: every distance,
-  average rent, and what else is nearby.</span>
+  <span class="heroHint">…or tap any block on the map for its full scorecard.</span>
 </div>
-
-<div class="wchips" aria-label="Score weights, heaviest first">
-  <span><b>Rent level</b> 3.0</span>
-  <span><b>MRT / LRT</b> 2.0</span>
-  <span><b>Supermarket</b> 1.4</span>
-  <span><b>Primary school</b> 1.2</span>
-  <span><b>Mall</b> 1.0</span>
-  <span><b>Hawker centre</b> 0.7</span>
-  <span><b>Infant care</b> 0.5</span>
-  <span><b>Community club</b> 0.2</span>
-</div>
-<p class="sub">Those are the eight weights, heaviest first. Higher rent counts <i>for</i> a block
-(the market's vote for a better address), popular primary schools count extra, and closer pays
-more — an MRT at 100&#8202;m earns more than one at 300&#8202;m. Distances are straight-line.</p>
 
 <div class="tiles" id="tiles"></div>
 
@@ -255,6 +243,23 @@ more — an MRT at 100&#8202;m earns more than one at 300&#8202;m. Distances are
   <div id="focusPanel" role="dialog" aria-label="Amenities near selected block"></div>
 </div>
 <div class="legend" id="legend"></div>
+
+<div class="scorehow">
+  <h2>How the score works</h2>
+  <div class="wchips" aria-label="Score weights, heaviest first">
+    <span><b>Rent level</b> 3.0</span>
+    <span><b>MRT / LRT</b> 2.0</span>
+    <span><b>Supermarket</b> 1.4</span>
+    <span><b>Primary school</b> 1.2</span>
+    <span><b>Mall</b> 1.0</span>
+    <span><b>Hawker centre</b> 0.7</span>
+    <span><b>Infant care</b> 0.5</span>
+    <span><b>Community club</b> 0.2</span>
+  </div>
+  <p class="sub">Higher rent counts <i>for</i> a block (the market's vote), popular primary
+  schools count extra, and closer pays more — an MRT at 100&#8202;m beats one at 300&#8202;m.
+  Straight-line distances; full detail in Method below.</p>
+</div>
 
 <div class="charts">
   <div class="card">
@@ -621,7 +626,7 @@ function renderFocusPanel(b, nearestMarkers){
     <div class="meta">${townOf(b)}${b[0] ? ' · S(' + b[0] + ')' : ''}${b[6] ? ' · ' + fmt(b[6]) + ' units' : ''}
       · score <b>${fmtScore(score(b))}/10</b></div>
     ${rentRow}${rows}
-    <div class="hint">Nearest of each amenity (dashed lines); smaller markers = everything within 1 km. ▲ beyond its benchmark. Score /10 is weighted: rent level 3.0 (higher rent = more desirable), MRT 2.0, supermarket 1.4, school 1.2 (× demand tier), mall 1.0, hawker 0.7, infant care 0.5, CC 0.2 — closer pays more: full weight within 100 m, half at the benchmark, zero at 2×. Click a row to see it, another block to switch, or Esc to exit.</div>`;
+    <div class="hint">Nearest of each amenity (dashed lines); smaller markers = everything within 1 km. ▲ beyond its benchmark. Click a row to see it, another block to switch, or Esc to exit.</div>`;
   p.style.display = 'block';
   p.querySelector('.close').onclick = clearFocus;
   p.querySelectorAll('.row').forEach(r => {
@@ -671,7 +676,7 @@ function drawLegend(){
     return `<span><span class="sw" style="${style}"></span>${LAYERS[l].label}</span>`;
   }).join('');
   if (S.mode === 'score'){
-    el.innerHTML = `<span><span class="ramp score"></span>block: score 0 → 10, weighted — rent level 3.0 (higher = more desirable), MRT 2.0, supermarket 1.4, school 1.2 × demand tier, mall 1.0, hawker 0.7, infant care 0.5, CC 0.2; closer pays more (see Method below); big green dots score 9+</span>` + marks;
+    el.innerHTML = `<span><span class="ramp score"></span>block score 0 → 10 — big green dots score 9+ (weights below)</span>` + marks;
   } else {
     el.innerHTML = `<span><span class="sw" style="background:${css('--blk-covered')}"></span>HDB block — <b>click one (or search above)</b> to see every amenity around it</span>` + marks;
   }
@@ -772,7 +777,7 @@ function drawHist(){
   const rows = BLOCKS.filter(b => !S.town || b[5] === S.town);
   if (S.mode === 'score'){
     $('#histTitle').textContent = 'Score distribution (0–10)';
-    $('#histNote').textContent = 'weighted: rent level 3.0 (higher = more desirable) · MRT 2.0 · supermarket 1.4 · school 1.2 × demand tier · mall 1.0 · hawker 0.7 · infant care 0.5 · CC 0.2 — closer pays more';
+    $('#histNote').textContent = 'weighted score — see "How the score works" above';
     const bins = Array(11).fill(0);
     rows.forEach(b => bins[Math.min(Math.round(score(b)), 10)]++);
     const bw = (W-m.l-m.r)/11, ymax = Math.max(...bins);
